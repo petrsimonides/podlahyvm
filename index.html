@@ -16,12 +16,12 @@
     :root{
       --bg: #0b0b0b;
       --surface: #151210;
-      --accent: #4a2f22;
+      --accent: #5a3a2d;
       --text: #ffffff;
-      --muted: #d4d4d4;
+      --muted: #e0e0e0;
       --nav-h: 64px;
     }
-    html, body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;}
+    html, body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;line-height:1.5;}
     html{scroll-behavior:smooth;}
     .container{max-width:1100px;margin:0 auto;padding:0 24px;}
     header.nav{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08);height:var(--nav-h)}
@@ -35,12 +35,17 @@
     nav a {padding: 8px 4px; position: relative; transition: color 0.3s;}
     nav a::after {content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px; background: var(--accent); transform: scaleX(0); transition: transform 0.3s;}
     nav a:hover {color: #fff;}
-    nav a:hover::after {transform: scaleX(1);}
+    nav a:hover::after, nav a:focus::after {transform: scaleX(1);}
     nav a,button,[role="button"], .clickable{cursor:pointer}
     a{color:var(--muted);text-decoration:none; transition: color 0.3s;}
-    a:hover{color:#fff;}
+    a:hover, a:focus{color:#fff;}
+    a:focus, button:focus {outline: 2px solid var(--accent); outline-offset: 2px;}
     .btn{background:var(--accent);color:#fff;border:0;border-radius:16px;padding:12px 16px;display:inline-block;font-weight:600;white-space:nowrap; transition: all 0.3s ease;}
     .btn:hover{filter:brightness(1.25); color: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.2);}
+    .btn::after, .btn:hover::after {transform: scaleX(0);}
+    .btn-sm{padding:8px 12px;font-size:14px;height:auto;line-height:normal;}
+    .btn-wrapper{margin-top:12px}
+    .contact-link{display:inline-block;margin-bottom:4px;}
 
     /* Hamburger menu */
     .hamburger-menu {display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 21px; cursor: pointer;}
@@ -51,7 +56,7 @@
 
     @media(max-width:768px){
       nav {gap: 20px;}
-      .btn{padding:10px 14px;font-size:14px}
+      .btn{padding:12px 16px;font-size:14px;margin:4px 0;}
     }
     @media(max-width:1000px){
       .hamburger-menu {display: flex;}
@@ -62,8 +67,10 @@
     }
 
     .section{padding:64px 0; scroll-margin-top: calc(var(--nav-h) + 16px);}
-    .section h2{font-size:32px;margin:0 0 10px}
-    .section p.lead{color:var(--muted);margin:0 0 24px}
+    .section h2{font-size:36px;margin:0 0 16px;font-weight:700;letter-spacing:-0.02em;position:relative;display:inline-block;}
+    .section h2::after {content:''; position:absolute; left:0; bottom:-6px; width:60px; height:3px; background:var(--accent);}
+    .section h3{font-size:22px;margin:0 0 12px;font-weight:600;color:#fff;}
+    .section p.lead{color:var(--muted);margin:0 0 32px;font-size:18px;line-height:1.6;}
     .surface{background:var(--surface)}
 
     .hero{min-height:64vh;display:flex;align-items:center}
@@ -75,19 +82,29 @@
     .hero h1{font-size:clamp(28px, 4.2vw, 48px);margin:0 0 10px}
     .hero .lead{max-width:820px}
 
-    .grid{display:grid;gap:20px}
+    .grid{display:grid;gap:24px}
     .grid-3{grid-template-columns:repeat(3,1fr)}
     .grid-2{grid-template-columns:repeat(2,1fr)}
-    @media (max-width:900px){.grid-3{grid-template-columns:1fr 1fr}}
-    @media (max-width:600px){.grid-3,.grid-2{grid-template-columns:1fr}}
+    @media (min-width:901px){
+      .kontakt-grid {grid-template-columns: repeat(3, 1fr);}
+    }
+    @media (max-width:900px){
+      .grid-3{grid-template-columns:1fr 1fr}
+      .kontakt-grid {grid-template-columns:1fr 1fr;}
+    }
+    @media (max-width:600px){
+      .kontakt-grid {grid-template-columns:1fr;}
+      .kontakt-grid .card:last-child {grid-column: span 1;}
+    }
+    @media (max-width:600px){.grid-3,.grid-2{grid-template-columns:1fr}; .grid{gap:32px}}
 
-    .card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px;display:flex;align-items:center;gap:10px}
-    .card span {display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; font-size: 20px; color: var(--accent);}
-    .card i {font-size: 20px;}
+    .card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px;display:flex;align-items:center;gap:14px}
+    .card span {display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; font-size: 24px; color: var(--accent);}
+    .card i {font-size: 24px;}
     .card a{color:var(--text);text-decoration:none; position: relative; transition: color 0.3s;}
     .card a:hover{color:#fff; text-decoration: none;}
     .card a::after {content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; background: var(--accent); transform: scaleX(0); transition: transform 0.3s;}
-    .card a:hover::after {transform: scaleX(1);}
+    .card a:not(.btn):hover::after {transform: scaleX(1);}
 
     .steps{display:grid;gap:16px;grid-template-columns:repeat(4,1fr)}
     @media (max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
@@ -98,44 +115,447 @@
     .gallery{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
     @media (max-width:900px){.gallery{grid-template-columns:repeat(2,1fr)}}
     @media (max-width:600px){.gallery{grid-template-columns:1fr}}
-    .gallery figure{margin:0;border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;background:rgba(255,255,255,.03)}
-    .gallery img{display:block;width:100%;height:220px;object-fit:cover}
+    .gallery figure{
+      margin:0;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;
+      overflow:hidden;
+      background:rgba(255,255,255,.03);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+    .gallery figure:hover, .gallery figure:focus-within {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .gallery figure::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(20, 20, 20, 0.6); /* Lehce šedý závoj */
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .gallery figure:hover::after, .gallery figure:focus-within::after {
+      opacity: 1;
+    }
+    /* Přidáme ikonu a text jako samostatné prvky */
+    .gallery figure {
+      position: relative;
+    }
+    .gallery figure .hover-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 2;
+      pointer-events: none;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    }
+    .gallery figure .hover-text i {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    .gallery figure:hover .hover-text, .gallery figure:focus-within .hover-text {
+      opacity: 1;
+    }
+    .gallery img{
+      display:block;
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      max-width:100%;
+      transition: transform 0.5s ease;
+    }
+    .gallery figure:hover img, .gallery figure:focus-within img {
+      transform: scale(1.05);
+    }
+    @media (max-width:600px){.gallery img{height:180px;}}
     .gallery figcaption{padding:10px;color:#ddd;font-size:14px}
 
     footer{border-top:1px solid rgba(255,255,255,.08);color:#bdbdbd}
-    .back-to-top {position: relative; padding: 6px 2px;}
-    .back-to-top i {font-size: 14px; margin-right: 4px; color: var(--accent);}
-    .back-to-top::after {content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: var(--accent); transform: scaleX(0); transition: transform 0.3s;}
-    .back-to-top:hover::after {transform: scaleX(1);}
+    .footer-content {display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:24px;}
+    .footer-info {display: flex; flex-direction: column; gap: 16px;}
+    .company-address {font-style: normal; margin-top: 8px; line-height: 1.5; font-size: 14px; opacity: 0.9;}
+    .footer-links {display: flex; flex-direction: column; align-items: flex-end; gap: 20px;}
+
+    .social-icons {display: flex; gap: 16px; margin-bottom: 10px;}
+    .social-icon {display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: rgba(255,255,255,.05); border-radius: 50%; transition: all 0.3s ease; position: relative;}
+    .social-icon i {font-size: 16px; color: var(--muted);}
+    .social-icon:hover {background: var(--accent);}
+    .social-icon:hover i {color: #fff;}
+
+    .social-icon[data-tooltip]::before {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 4px 8px;
+      background: rgba(0,0,0,.8);
+      color: #fff;
+      font-size: 12px;
+      white-space: nowrap;
+      border-radius: 4px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    .social-icon:hover[data-tooltip]::before {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .popup-tooltip[data-tooltip]::before {
+      bottom: auto;
+      top: 120%;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--accent);
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 40;
+      box-shadow: 0 3px 10px rgba(0,0,0,.4);
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255,255,255,.15);
+    }
+    .back-to-top i {
+      font-size: 20px;
+      color: #fff;
+    }
+    .back-to-top:hover {
+      transform: translateY(-4px);
+      filter: brightness(1.2);
+      box-shadow: 0 6px 14px rgba(0,0,0,.5);
+    }
+    @media (max-width: 600px) {
+      .back-to-top {
+        bottom: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+      }
+    }
 
     /* Modal */
-    .modal{position:fixed;inset:0;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center;z-index:9999}
-    .modal.active{display:flex}
-    .modal-content{background:var(--surface);padding:20px;border-radius:16px;max-width:400px;width:90%;color:#fff}
-    .modal-close{float:right;cursor:pointer;font-size:18px}
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      visibility: hidden;
+      opacity: 0;
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+      transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease;
+    }
+    .modal.active {
+      visibility: visible;
+      opacity: 1;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
+    .modal-content {
+      background: var(--surface);
+      padding: 100px;
+      border-radius: 16px;
+      max-width: 500px;
+      width: 90%;
+      color: #fff;
+      position: relative;
+      transform: scale(0.95);
+      opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .modal.active .modal-content {
+      transform: scale(1);
+      opacity: 1;
+    }
+    .modal-close{position:absolute;top:20px;right:20px;cursor:pointer;font-size:30px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;transition:all 0.3s ease;}
+    .modal-close:hover{transform:scale(1.2);color:var(--accent);}
+
+    .modal-card {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .modal-card-content {
+      padding: 0 16px;
+    }
+    .modal-card-action {
+      justify-self: end;
+    }
+
+    /* Cookie consent banner */
+    .cookie-banner {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      right: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(21, 18, 16, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 12px;
+      padding: 28px 30px;
+      z-index: 100;
+      transform: translateY(150%);
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 10px 30px rgba(255,255,255,.08), 0 0 0 1px rgba(255,255,255,0.1);
+    }
+    .cookie-banner.active {
+      transform: translateY(0);
+    }
+    .cookie-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .cookie-text {
+      flex: 1;
+      min-width: 280px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    .cookie-title {
+      font-size: 22px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .cookie-text a {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .cookie-text a:hover {
+      color: var(--accent);
+    }
+    .cookie-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .cookie-btn {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 16px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+    .cookie-btn:hover, .cookie-btn:focus {
+      background: rgba(255,255,255,.1);
+      color: #fff;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(255,255,255,.2);
+    }
+    .cookie-btn.accept-all {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+    .cookie-btn.accept-all:hover, .cookie-btn.accept-all:focus {
+      filter: brightness(1.2);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+    @media (max-width: 600px) {
+      .cookie-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .cookie-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
+    /* Image lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      visibility: hidden;
+      opacity: 0;
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+      transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease;
+    }
+    .lightbox.active {
+      visibility: visible;
+      opacity: 1;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 85vh;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .lightbox.active .lightbox-content {
+      transform: scale(1);
+      opacity: 1;
+    }
+    .lightbox-img {
+      display: block;
+      max-width: 100%;
+      max-height: 85vh;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .lightbox-caption {
+      position: absolute;
+      bottom: -40px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: #fff;
+      font-size: 16px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: #fff;
+      font-size: 30px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+    .lightbox-close:hover {
+      transform: scale(1.2);
+      color: var(--accent);
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+      background: rgba(0,0,0,0.4);
+      border: none;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+    .lightbox-nav:hover {
+      background: var(--accent);
+    }
+    .lightbox-prev {
+      left: 20px;
+    }
+    .lightbox-next {
+      right: 20px;
+    }
+    @media (max-width: 768px) {
+      .lightbox-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
+      .lightbox-prev {
+        left: 10px;
+      }
+      .lightbox-next {
+        right: 10px;
+      }
+    }
+
+    /* Accessibility helpers */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
   </style>
 </head>
 <body>
 
-  <header class="nav">
+  <header class="nav" role="banner">
     <div class="container nav-inner">
       <a href="#top" class="logo"><i class="fas fa-tools"></i> Podlahářské práce V-M</a>
-      <div class="hamburger-menu" id="hamburgerMenu">
+      <div class="hamburger-menu" id="hamburgerMenu" aria-label="Hlavní menu" role="button" tabindex="0" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <nav id="mainNav">
+      <nav id="mainNav" role="navigation" aria-label="Hlavní navigace">
         <a href="#sluzby">Služby</a>
         <a href="#o-mne">O nás</a>
         <a href="#postup">Jak pracujeme</a>
         <a href="#reference">Reference</a>
-        <button id="poptavkaBtn" class="btn" type="button">Nezávazná poptávka</button>
+        <button id="poptavkaBtn" class="btn" type="button" aria-haspopup="dialog">Kontaktujte nás</button>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main role="main">
     <section class="section hero hero-bg">
       <div class="container">
         <h1>Precizní podlahy pro domov i firmu</h1>
@@ -182,9 +602,30 @@
         <h2>Realizace a reference</h2>
         <p class="lead">Vybrané ukázky posledních projektů.</p>
         <div class="gallery">
-          <figure><img src="images/ref-1.jpg" alt="Vinyl – obývací pokoj" /><figcaption>Vinyl – obývací pokoj</figcaption></figure>
-          <figure><img src="images/ref-2.jpg" alt="Laminát – novostavba" /><figcaption>Laminát – novostavba</figcaption></figure>
-          <figure><img src="images/ref-3.jpg" alt="Dřevěná podlaha – renovace" /><figcaption>Dřevěná podlaha – renovace</figcaption></figure>
+          <figure>
+            <img src="images/20220409_173041.jpg" alt="Pokládka vinylové podlahy v obývacím pokoji, moderní šedá podlaha" tabindex="0" />
+            <figcaption>Vinyl – obývací pokoj</figcaption>
+            <div class="hover-text">
+              <i class="fas fa-search-plus"></i>
+              <span>Zvětšit</span>
+            </div>
+          </figure>
+          <figure>
+            <img src="images/20220619_154848.jpg" alt="Instalace laminátové podlahy v novostavbě, světlý dřevěný dekor" tabindex="0" />
+            <figcaption>Laminát – novostavba</figcaption>
+            <div class="hover-text">
+              <i class="fas fa-search-plus"></i>
+              <span>Zvětšit</span>
+            </div>
+          </figure>
+          <figure>
+            <img src="images/20220817_072323.jpg" alt="Renovace původní dřevěné podlahy, broušení a lakování parket" tabindex="0" />
+            <figcaption>Dřevěná podlaha – renovace</figcaption>
+            <div class="hover-text">
+              <i class="fas fa-search-plus"></i>
+              <span>Zvětšit</span>
+            </div>
+          </figure>
         </div>
       </div>
     </section>
@@ -193,42 +634,231 @@
       <div class="container">
         <h2>Kontakt</h2>
         <p class="lead">Ozvěte se – domluvíme si nezávazné zaměření a nabídku.</p>
-        <div class="grid grid-2">
-          <div class="card"><span><i class="fas fa-phone"></i></span><div><strong>Jan Novák</strong><br><a href="tel:+420777000000">+420 777 000 000</a></div></div>
-          <div class="card"><span><i class="fas fa-phone"></i></span><div><strong>Petr Novák</strong><br><a href="tel:+420777111111">+420 777 111 111</a></div></div>
-          <div class="card"><span><i class="fas fa-envelope"></i></span><div><strong>Email</strong><br><a href="mailto:info@podlahar-novak.cz">info@podlahar-novak.cz</a></div></div>
+        <div class="grid kontakt-grid">
+          <section class="card" aria-label="Kontakt Jan Novák">
+            <span><i class="fas fa-phone" aria-hidden="true"></i></span>
+            <div>
+              <strong>Jan Novák</strong><br>
+              <a href="tel:+420777000000" class="contact-link">+420&nbsp;777&nbsp;000&nbsp;000</a>
+              <div class="btn-wrapper">
+                <a href="tel:+420777000000" class="btn btn-sm">Zavolat</a>
+              </div>
+            </div>
+          </section>
+          <section class="card" aria-label="Kontakt Petr Novák">
+            <span><i class="fas fa-phone" aria-hidden="true"></i></span>
+            <div>
+              <strong>Petr Novák</strong><br>
+              <a href="tel:+420777111111" class="contact-link">+420&nbsp;777&nbsp;111&nbsp;111</a>
+              <div class="btn-wrapper">
+                <a href="tel:+420777111111" class="btn btn-sm">Zavolat</a>
+              </div>
+            </div>
+          </section>
+          <section class="card" aria-label="Emailový kontakt">
+            <span><i class="fas fa-envelope" aria-hidden="true"></i></span>
+            <div>
+              <strong>Napište nám</strong><br>
+              <a href="mailto:info@podlahar-novak.cz" class="contact-link">info@podlahar-novak.cz</a>
+              <div class="btn-wrapper">
+                <a href="mailto:info@podlahar-novak.cz" class="btn btn-sm">Napsat e-mail</a>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="section">
-    <div class="container" style="display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap">
-      <div>© <span id="y"></span> Podlahářské práce V-M</div>
-      <div><a href="#top" class="back-to-top"><i class="fas fa-arrow-up"></i> Nahoru</a></div>
+    <div class="container footer-content">
+      <div class="footer-info">
+        <div>© <span id="y"></span> Podlahářské práce V-M</div>
+        <address class="company-address">Luka nad Jihlavou, 1.Máje 100<br>IČO: 12345678</address>
+      </div>
+      <div class="footer-links">
+        <div class="social-icons">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook Podlahářské práce V-M" class="social-icon" data-tooltip="Facebook">
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram Podlahářské práce V-M" class="social-icon" data-tooltip="Instagram">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
 
+  <a href="#top" class="back-to-top" aria-label="Zpět nahoru" title="Nahoru"><i class="fas fa-arrow-up"></i></a>
+
   <div id="contactModal" class="modal">
     <div class="modal-content">
-      <span class="modal-close" id="modalClose">&times;</span>
-      <h3>Kontakt</h3>
-      <div class="card"><span><i class="fas fa-phone"></i></span><div><strong>Jan Novák</strong><br><a href="tel:+420777000000">+420 777 000 000</a></div></div>
-      <div class="card"><span><i class="fas fa-phone"></i></span><div><strong>Petr Novák</strong><br><a href="tel:+420777111111">+420 777 111 111</a></div></div>
-      <div class="card"><span><i class="fas fa-envelope"></i></span><div><strong>Email</strong><br><a href="mailto:info@podlahar-novak.cz">info@podlahar-novak.cz</a></div></div>
+      <span class="modal-close" id="modalClose" title="Zavřít" aria-label="Zavřít">&times;</span>
+      <h3 style="text-align: center; font-size: 28px; margin-bottom: 30px;">Kontaktujte nás</h3>
+      <div class="card modal-card"><span><i class="fas fa-phone" aria-hidden="true"></i></span><div class="modal-card-content"><strong>Jan Novák</strong><br><a href="tel:+420777000000" class="contact-link">+420&nbsp;777&nbsp;000&nbsp;000</a></div><div class="modal-card-action"><a href="tel:+420777000000" class="btn btn-sm">Zavolat</a></div></div>
+      <div class="card modal-card"><span><i class="fas fa-phone" aria-hidden="true"></i></span><div class="modal-card-content"><strong>Petr Novák</strong><br><a href="tel:+420777111111" class="contact-link">+420&nbsp;777&nbsp;111&nbsp;111</a></div><div class="modal-card-action"><a href="tel:+420777111111" class="btn btn-sm">Zavolat</a></div></div>
+      <div class="card modal-card"><span><i class="fas fa-envelope" aria-hidden="true"></i></span><div class="modal-card-content"><strong>Napište nám</strong><br><a href="mailto:info@podlahar-novak.cz" class="contact-link">info@podlahar-novak.cz</a></div><div class="modal-card-action"><a href="mailto:info@podlahar-novak.cz" class="btn btn-sm">Napsat e-mail</a></div></div>
+
+      <div style="margin-top: 20px; text-align: center;">
+        <p style="margin-bottom: 10px;">Najdete nás také na sociálních sítích:</p>
+        <div class="social-icons" style="justify-content: center;">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook Podlahářské práce V-M" class="social-icon popup-tooltip" data-tooltip="Facebook">
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram Podlahářské práce V-M" class="social-icon popup-tooltip" data-tooltip="Instagram">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie policy modal -->
+  <div id="cookiePolicyModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" id="cookiePolicyClose" title="Zavřít" aria-label="Zavřít">&times;</span>
+      <h3 style="text-align: center; font-size: 28px; margin-bottom: 30px;">Zásady používání cookies</h3>
+
+      <div style="max-height: 60vh; overflow-y: auto; padding-right: 15px;">
+        <h4 style="font-size: 18px; margin-top: 0;">Co jsou cookies?</h4>
+        <p style="margin-bottom: 20px;">Cookies jsou malé textové soubory, které jsou uloženy ve vašem prohlížeči a umožňují webovým stránkám rozpoznat vás při opětovné návštěvě. Používáme je k zajištění správného fungování webu, jeho zlepšování a poskytování lepšího uživatelského zážitku.</p>
+
+        <h4 style="font-size: 18px;">Jaké typy cookies používáme?</h4>
+        <p style="margin-bottom: 10px;"><strong>Nezbytné cookies:</strong> Tyto cookies jsou nutné pro správné fungování našeho webu. Bez nich by stránky nefungovaly správně. Tyto cookies nesbírají žádné informace, které by mohly být použity pro marketingové účely.</p>
+        <p style="margin-bottom: 20px;"><strong>Analytické cookies:</strong> Pomáhají nám pochopit, jak návštěvníci používají naše stránky. Sbíráme anonymizované informace o návštěvnosti, což nám umožňuje zlepšovat fungování webu. Pro tyto účely využíváme službu Google Analytics.</p>
+
+        <h4 style="font-size: 18px;">Jak spravovat cookies?</h4>
+        <p style="margin-bottom: 20px;">Většina webových prohlížečů umožňuje spravovat cookies prostřednictvím nastavení prohlížeče. Můžete cookies blokovat, mazat nebo nastavit prohlížeč tak, aby vás upozornil na jejich použití. Upozorňujeme, že vypnutí cookies může negativně ovlivnit funkčnost a uživatelský komfort při používání našeho webu.</p>
+
+        <h4 style="font-size: 18px;">Jak dlouho uchováváme informace?</h4>
+        <p style="margin-bottom: 20px;">Doba uchovávání cookies se liší podle jejich typu. Nezbytné cookies jsou obvykle mazány po zavření prohlížeče, zatímco analytické cookies mohou být uchovávány až 2 roky, pokud je ručně nesmažete.</p>
+
+        <h4 style="font-size: 18px;">Vaše volby</h4>
+        <p style="margin-bottom: 20px;">Máte právo rozhodnout, zda přijmete cookies či nikoliv. Přestože jsou nezbytné cookies nutné pro fungování webu, u ostatních typů cookies máte na výběr. Svůj souhlas můžete kdykoliv změnit smazáním cookies ve vašem prohlížeči.</p>
+
+        <h4 style="font-size: 18px;">Kontaktujte nás</h4>
+        <p>Pokud máte jakékoliv dotazy ohledně našich zásad používání cookies, kontaktujte nás na emailu: <a href="mailto:info@podlahar-novak.cz">info@podlahar-novak.cz</a>.</p>
+      </div>
+
+      <div style="margin-top: 30px; text-align: center;">
+        <button id="cookiePolicyConfirm" class="btn btn-sm">Rozumím</button>
+      </div>
     </div>
   </div>
 
   <script>
     document.getElementById('y').textContent = String(new Date().getFullYear());
-    document.querySelectorAll('#poptavkaBtn,#poptavkaBtn2').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        document.getElementById('contactModal').classList.add('active');
+
+    // Attach event listeners once
+    function attachModalListeners() {
+      // Contact modal buttons
+      document.querySelectorAll('#poptavkaBtn, #poptavkaBtn2').forEach(btn => {
+        btn.addEventListener('click', () => {
+          openModal('contactModal');
+        });
       });
-    });
-    document.getElementById('modalClose').addEventListener('click',()=>{
-      document.getElementById('contactModal').classList.remove('active');
-    });
+
+      document.getElementById('modalClose').addEventListener('click', () => {
+        closeModal('contactModal');
+      });
+
+      // Close modal when clicking outside of it
+      document.getElementById('contactModal').addEventListener('click', (e) => {
+        if (e.target === document.getElementById('contactModal')) {
+          closeModal('contactModal');
+        }
+      });
+
+      // Cookie policy modal
+      document.getElementById('cookiePolicyClose').addEventListener('click', () => {
+        closeModal('cookiePolicyModal');
+      });
+
+      document.getElementById('cookiePolicyConfirm').addEventListener('click', () => {
+        closeModal('cookiePolicyModal');
+      });
+
+      document.getElementById('cookiePolicyModal').addEventListener('click', (e) => {
+        if (e.target === document.getElementById('cookiePolicyModal')) {
+          closeModal('cookiePolicyModal');
+        }
+      });
+
+      // Cookie policy link
+      document.getElementById('cookiePolicyLink').addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal('cookiePolicyModal');
+      });
+    }
+
+    // Open modal with animation
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      const content = modal.querySelector('.modal-content');
+
+      // Reset any previous inline styles to ensure clean state
+      modal.style.visibility = '';
+      modal.style.opacity = '';
+      modal.style.backdropFilter = '';
+      modal.style.webkitBackdropFilter = '';
+      content.style.opacity = '';
+      content.style.transform = '';
+
+      // Force reflow to ensure clean state is applied
+      void modal.offsetWidth;
+
+      // Now set the initial state for animation
+      modal.style.visibility = 'visible';
+      modal.style.opacity = '0';
+      content.style.opacity = '0';
+      content.style.transform = 'scale(0.95)';
+
+      // Force another reflow before starting animation
+      void modal.offsetWidth;
+
+      // Start the animations
+      modal.classList.add('active');
+      modal.style.opacity = '1';
+
+      // Animate content with slight delay
+      setTimeout(() => {
+        content.style.opacity = '1';
+        content.style.transform = 'scale(1)';
+      }, 50);
+    }
+
+    // Close modal with animation
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      const content = modal.querySelector('.modal-content');
+
+      // Start fade out animation for the content
+      content.style.opacity = '0';
+      content.style.transform = 'scale(0.95)';
+
+      // Fade out background
+      modal.style.opacity = '0';
+      modal.style.backdropFilter = 'blur(0px)';
+      modal.style.webkitBackdropFilter = 'blur(0px)';
+
+      // After animations complete, hide the modal
+      setTimeout(() => {
+        modal.classList.remove('active');
+        modal.style.visibility = 'hidden';
+
+        // Reset styles for next opening
+        setTimeout(() => {
+          // Reset content styles
+          content.style.opacity = '';
+          content.style.transform = '';
+
+          // Reset modal styles
+          modal.style.opacity = '';
+          modal.style.backdropFilter = '';
+          modal.style.webkitBackdropFilter = '';
+        }, 100);
+      }, 300);
+    }
 
     // Hamburger menu functionality
     document.getElementById('hamburgerMenu').addEventListener('click', () => {
@@ -249,6 +879,263 @@
         spans[2].classList.remove('rotate-up');
       });
     });
+
+    // Lightbox functionality
+    function initLightbox() {
+      const lightbox = document.getElementById('imageLightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const lightboxClose = document.getElementById('lightboxClose');
+      const lightboxPrev = document.getElementById('lightboxPrev');
+      const lightboxNext = document.getElementById('lightboxNext');
+
+      // Gallery images
+      const galleryImages = document.querySelectorAll('.gallery figure img');
+      let currentIndex = 0;
+
+      // Make gallery images clickable
+      galleryImages.forEach((img, index) => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', () => {
+          openLightbox(index);
+        });
+      });
+
+      // Open lightbox
+      function openLightbox(index) {
+        currentIndex = index;
+        const img = galleryImages[index];
+        const caption = img.closest('figure').querySelector('figcaption').textContent;
+
+        // Reset any previous inline styles
+        lightbox.style.visibility = '';
+        lightbox.style.opacity = '';
+        lightbox.style.backdropFilter = '';
+        lightbox.style.webkitBackdropFilter = '';
+
+        const lightboxContent = lightbox.querySelector('.lightbox-content');
+        lightboxContent.style.opacity = '';
+        lightboxContent.style.transform = '';
+
+        // Force reflow
+        void lightbox.offsetWidth;
+
+        // Set initial state for animation
+        lightbox.style.visibility = 'visible';
+        lightbox.style.opacity = '0';
+        lightboxContent.style.opacity = '0';
+        lightboxContent.style.transform = 'scale(0.95)';
+
+        // Set image source and caption
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxCaption.textContent = caption;
+
+        // Force another reflow
+        void lightbox.offsetWidth;
+
+        // Start animations
+        lightbox.classList.add('active');
+        lightbox.style.opacity = '1';
+
+        setTimeout(() => {
+          lightboxContent.style.opacity = '1';
+          lightboxContent.style.transform = 'scale(1)';
+        }, 50);
+
+        // Show/hide navigation buttons based on position
+        updateNavButtons();
+      }
+
+      // Close lightbox
+      function closeLightbox() {
+        const lightboxContent = lightbox.querySelector('.lightbox-content');
+
+        // Start fade out animations
+        lightboxContent.style.opacity = '0';
+        lightboxContent.style.transform = 'scale(0.95)';
+
+        lightbox.style.opacity = '0';
+        lightbox.style.backdropFilter = 'blur(0px)';
+        lightbox.style.webkitBackdropFilter = 'blur(0px)';
+
+        // After animations complete, hide lightbox
+        setTimeout(() => {
+          lightbox.classList.remove('active');
+          lightbox.style.visibility = 'hidden';
+
+          // Reset styles
+          setTimeout(() => {
+            lightboxContent.style.opacity = '';
+            lightboxContent.style.transform = '';
+            lightbox.style.opacity = '';
+            lightbox.style.backdropFilter = '';
+            lightbox.style.webkitBackdropFilter = '';
+          }, 100);
+        }, 300);
+      }
+
+      // Navigate to previous image
+      function prevImage() {
+        if (currentIndex > 0) {
+          openLightbox(currentIndex - 1);
+        }
+      }
+
+      // Navigate to next image
+      function nextImage() {
+        if (currentIndex < galleryImages.length - 1) {
+          openLightbox(currentIndex + 1);
+        }
+      }
+
+      // Update navigation buttons visibility
+      function updateNavButtons() {
+        lightboxPrev.style.visibility = currentIndex > 0 ? 'visible' : 'hidden';
+        lightboxNext.style.visibility = currentIndex < galleryImages.length - 1 ? 'visible' : 'hidden';
+      }
+
+      // Event listeners
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightboxPrev.addEventListener('click', prevImage);
+      lightboxNext.addEventListener('click', nextImage);
+
+      // Close when clicking outside the image
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+
+        if (e.key === 'Escape') {
+          closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+          prevImage();
+        } else if (e.key === 'ArrowRight') {
+          nextImage();
+        }
+      });
+    }
   </script>
+
+  <!-- Cookie consent banner -->
+  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieDescription">
+    <div class="container cookie-content">
+      <div class="cookie-text">
+        <span id="cookieTitle" class="cookie-title">Nastavení soukromí</span>
+        <p id="cookieDescription">Používáme cookies pro správnou funkci webu a analýzu návštěvnosti. Kliknutím na „Přijmout vše" souhlasíte s používáním všech cookies. Kliknutím na „Jen nezbytné" budou použity jen technicky nezbytné cookies. Více informací najdete v našich <a href="#" id="cookiePolicyLink">zásadách cookies</a>.</p>
+      </div>
+      <div class="cookie-actions">
+        <button id="cookieAcceptNecessary" class="cookie-btn" aria-label="Povolit jen nezbytné cookies">Jen nezbytné</button>
+        <button id="cookieAcceptAll" class="cookie-btn accept-all" aria-label="Povolit všechny cookies">Přijmout vše</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie management script -->
+  <script>
+    // Cookie management script
+    (function() {
+      const cookieBanner = document.getElementById('cookieBanner');
+      const acceptAllBtn = document.getElementById('cookieAcceptAll');
+      const acceptNecessaryBtn = document.getElementById('cookieAcceptNecessary');
+
+      // Cookie management functions
+      function setCookie(name, value, days) {
+        let expires = '';
+        if (days) {
+          const date = new Date();
+          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+          expires = '; expires=' + date.toUTCString();
+        }
+        document.cookie = name + '=' + (value || '') + expires + '; path=/; SameSite=Lax';
+      }
+
+      function getCookie(name) {
+        const nameEQ = name + '=';
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+      }
+
+      // Check if consent was given
+      function hasConsent() {
+        return getCookie('cookie_consent') !== null;
+      }
+
+      // Initialize analytics if consent was given
+      function initializeAnalytics() {
+        if (getCookie('cookie_consent') === 'all') {
+          // This function will be called when the user accepts analytics cookies
+          // Google Analytics code will be inserted here later
+          console.log('Analytics initialized');
+
+          // Example of how GA might be initialized:
+          /*
+          const gaScript = document.createElement('script');
+          gaScript.async = true;
+          gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID';
+          document.head.appendChild(gaScript);
+
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'YOUR-GA-ID');
+          */
+        }
+      }
+
+      // Show cookie banner if no consent given
+      function manageCookieBanner() {
+        if (!hasConsent()) {
+          setTimeout(() => {
+            cookieBanner.classList.add('active');
+          }, 1000);
+        } else {
+          initializeAnalytics();
+        }
+      }
+
+      // Event listeners
+      acceptAllBtn.addEventListener('click', () => {
+        setCookie('cookie_consent', 'all', 365);
+        cookieBanner.classList.remove('active');
+        initializeAnalytics();
+      });
+
+      acceptNecessaryBtn.addEventListener('click', () => {
+        setCookie('cookie_consent', 'necessary', 365);
+        cookieBanner.classList.remove('active');
+      });
+
+      // Initialize
+      manageCookieBanner();
+    })();
+
+    // Initialize all modal event listeners when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      attachModalListeners();
+      initLightbox();
+    });
+  </script>
+
+  <!-- Image lightbox -->
+  <div id="imageLightbox" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxCaption">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" title="Zavřít" aria-label="Zavřít">&times;</button>
+      <img class="lightbox-img" id="lightboxImg" src="" alt="">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+      <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Předchozí obrázek"><i class="fas fa-chevron-left"></i></button>
+      <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Další obrázek"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
 </body>
 </html>
