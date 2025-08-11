@@ -1,0 +1,14 @@
+{
+  "name": "podlahyvm",
+  "version": "1.0.0",
+  "description": "Podlahářské práce V-M - webová prezentace",
+  "main": "index.html",
+  "scripts": {
+    "test": "playwright test",
+    "serve": "http-server . -p 3000"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.2",
+    "http-server": "^14.1.1"
+  }
+}
