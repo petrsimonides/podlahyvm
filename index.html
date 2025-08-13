@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Podlahářské práce V-M</title>
-  <meta name="description" content="Pokládka vinylu, laminátu a dřevěných podlah. Precizní práce, fér ceny." />
+  <meta name="description" content="Pokládka vinylu, laminátu a dřevěných podlah. Precizní práce, fér ceny. Působíme v Jihlavě a v Kraji Vysočina." />
   <!-- Favicons -->
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -26,9 +26,9 @@
     .container{max-width:1100px;margin:0 auto;padding:0 24px;}
     header.nav{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08);height:var(--nav-h)}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;height:100%}
-    .logo {font-weight: bold; color: var(--text); transition: color 0.3s; position: relative;}
+    .logo {font-weight: bold; color: var(--text); transition: color 0.3s; position: relative; font-size: 17px;}
     .logo:hover {color: #fff;}
-    .logo i {margin-right: 8px; color: var(--accent);}
+    .logo i {margin-right: 10px; color: var(--accent); font-size: 24px;}
     .logo::after {content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px; background: var(--accent); transform: scaleX(0); transition: transform 0.3s;}
     .logo:hover::after {transform: scaleX(1);}
     nav {display: flex; align-items: center; gap: 32px;}
@@ -60,13 +60,63 @@
     }
     @media(max-width:1000px){
       .hamburger-menu {display: flex;}
-      nav {display: none; flex-direction: column; position: absolute; top: var(--nav-h); left: 0; right: 0; background: rgba(0,0,0,.9); backdrop-filter: blur(8px); padding: 20px; align-items: flex-start; gap: 16px; border-bottom: 1px solid rgba(255,255,255,.08);}
+      nav {display: none; flex-direction: column; position: absolute; top: var(--nav-h); left: 0; right: 0; background: rgba(0,0,0,.95); backdrop-filter: blur(8px); padding: 16px; align-items: flex-start; gap: 12px; border-bottom: 1px solid rgba(255,255,255,.08);}
       nav.active {display: flex;}
-      nav a {font-size: 16px; width: 100%; padding: 12px 24px;}
-      nav .btn {margin: 8px 24px 16px; align-self: flex-start;}
+      nav a {font-size: 16px; width: 100%; padding: 8px 24px;}
+      
+      /* Kontaktní sekce v menu */
+      .nav-contacts {
+        border-top: 1px solid rgba(255,255,255,.08);
+        margin-top: 10px;
+        padding-top: 15px;
+        width: 100%;
+      }
+      .nav-contacts-heading {
+        font-size: 18px;
+        margin: 0 0 15px 24px;
+        color: var(--text);
+        font-weight: 600;
+      }
+      .nav-contact-item {
+        display: flex;
+        align-items: center;
+        padding: 8px 24px;
+        gap: 12px;
+        color: var(--muted);
+        margin-bottom: 18px;
+      }
+      .nav-contact-item i {
+        color: var(--accent);
+        font-size: 16px;
+        width: 20px;
+        text-align: center;
+      }
+      .nav-contact-text {
+        display: flex;
+        flex-direction: column;
+      }
+      .nav-contact-text div:first-child {
+        color: var(--text);
+        font-weight: 500;
+      }
+      .nav-contact-text div:last-child {
+        font-size: 14px;
+      }
+    }
+    /* Skrytí kontaktní sekce v desktopovém zobrazení */
+    nav .nav-contacts {
+      display: none;
+    }
+    @media(max-width:1000px){
+      nav .nav-contacts {
+        display: block;
+      }
     }
 
     .section{padding:64px 0; scroll-margin-top: calc(var(--nav-h) + 16px);}
+    .section:last-of-type {
+      padding-bottom: 90px; /* Přidání většího spodního paddingu pro poslední sekci */
+    }
     .section h2{font-size:36px;margin:0 0 16px;font-weight:700;letter-spacing:-0.02em;position:relative;display:inline-block;}
     .section h2::after {content:''; position:absolute; left:0; bottom:-6px; width:60px; height:3px; background:var(--accent);}
     .section h3{font-size:22px;margin:0 0 12px;font-weight:600;color:#fff;}
@@ -76,11 +126,32 @@
     .hero{min-height:64vh;display:flex;align-items:center}
     .hero-bg{position:relative;isolation:isolate}
     .hero-bg::before{content:"";position:absolute;inset:0;z-index:-1;
-      background-image:linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.65)),
+      background-image:linear-gradient(to bottom, rgba(0,0,0,.2), rgba(0,0,0,.3)),
         url('header.png');
-      background-size:cover;background-position:center;filter:saturate(.9);}
+      background-size:cover;background-position:center;filter:saturate(1.15) brightness(1.4);}
     .hero h1{font-size:clamp(28px, 4.2vw, 48px);margin:0 0 10px}
     .hero .lead{max-width:820px}
+    
+    /* Vylepšení čitelnosti textu na světlém pozadí */
+    .hero-content {
+      background-color: rgba(0,0,0,.2);
+      padding: 35px 50px;
+      border-radius: 16px;
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      max-width: 900px;
+    }
+    .hero h1 {
+      text-shadow: 0 2px 4px rgba(0,0,0,.3);
+      margin-bottom: 16px;
+    }
+    .hero .lead {
+      text-shadow: 0 1px 2px rgba(0,0,0,.3);
+    }
+    .hero .btn {
+      margin-top: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.2);
+    }
 
     .grid{display:grid;gap:24px}
     .grid-3{grid-template-columns:repeat(3,1fr)}
@@ -98,7 +169,21 @@
     }
     @media (max-width:600px){.grid-3,.grid-2{grid-template-columns:1fr}; .grid{gap:32px}}
 
-    .card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px;display:flex;align-items:center;gap:14px}
+    .card{
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      padding:18px;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      background: rgba(255,255,255,.05);
+    }
     .card span {display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; font-size: 24px; color: var(--accent);}
     .card i {font-size: 24px;}
     .card a{color:var(--text);text-decoration:none; position: relative; transition: color 0.3s;}
@@ -109,12 +194,91 @@
     .steps{display:grid;gap:16px;grid-template-columns:repeat(4,1fr)}
     @media (max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
     @media (max-width:600px){.steps{grid-template-columns:1fr}}
-    .step{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px}
-    .step .num{font-size:34px;font-weight:800;color:var(--accent)}
+    .step{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      padding:18px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+    .step:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      background: rgba(255,255,255,.06);
+    }
+    .step .num{
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-right: 22px;
+      line-height: 1;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step strong {
+      font-size: 20px;
+      display: inline-block;
+      margin-bottom: 6px;
+      color: #fff;
+      padding-top: 4px;
+    }
+    .step div:last-child {
+      overflow: hidden;
+    }
 
-    .gallery{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
-    @media (max-width:900px){.gallery{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:600px){.gallery{grid-template-columns:1fr}}
+    .gallery {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(3,1fr);
+      position: relative;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+    }
+    .gallery::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+    @media (max-width:900px) {
+      .gallery {
+        grid-template-columns: repeat(2,1fr)
+      }
+    }
+    /* Zobrazení navigačních šipek pouze na mobilních zařízeních */
+    @media (max-width:600px) {
+      .gallery {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 16px;
+        padding: 0 0 16px 0;
+        position: relative;
+      }
+      .gallery figure {
+        flex: 0 0 80%;
+        max-width: 80%;
+      }
+      .gallery-container {
+        position: relative;
+      }
+      .gallery-nav {
+        display: flex; /* Zobrazení pouze na mobilech */
+      }
+      /* Indikátory na konci scrollu */
+      .gallery::after {
+        content: "";
+        flex: 0 0 8px; /* Malý prostor na konci galerie pro indikaci konce */
+      }
+      .gallery::before {
+        content: "";
+        flex: 0 0 8px; /* Malý prostor na začátku galerie pro indikaci začátku */
+      }
+    }
     .gallery figure{
       margin:0;
       border:1px solid rgba(255,255,255,.08);
@@ -190,18 +354,53 @@
     @media (max-width:600px){.gallery img{height:180px;}}
     .gallery figcaption{padding:10px;color:#ddd;font-size:14px}
 
-    footer{border-top:1px solid rgba(255,255,255,.08);color:#bdbdbd}
-    .footer-content {display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:24px;}
-    .footer-info {display: flex; flex-direction: column; gap: 16px;}
-    .company-address {font-style: normal; margin-top: 8px; line-height: 1.5; font-size: 14px; opacity: 0.9;}
-    .footer-links {display: flex; flex-direction: column; align-items: flex-end; gap: 20px;}
-
-    .social-icons {display: flex; gap: 16px; margin-bottom: 10px;}
-    .social-icon {display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: rgba(255,255,255,.05); border-radius: 50%; transition: all 0.3s ease; position: relative;}
-    .social-icon i {font-size: 16px; color: var(--muted);}
-    .social-icon:hover {background: var(--accent);}
-    .social-icon:hover i {color: #fff;}
-
+    footer{border-top:1px solid rgba(255,255,255,.08);color:#bdbdbd; padding: 30px 0; margin-top: 40px;}
+    .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-copyright {
+      font-size: 14px;
+    }
+    .footer-address {
+      font-style: normal;
+      font-size: 14px;
+      opacity: 0.9;
+      margin: 0;
+    }
+    .footer-location {
+      font-size: 14px;
+      opacity: 0.9;
+      margin: 0;
+    }
+    .footer-social {
+      display: flex;
+      align-items: center;
+    }
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: rgba(255,255,255,.05);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .social-icon i {
+      font-size: 16px;
+      color: var(--muted);
+    }
+    .social-icon:hover {
+      background: var(--accent);
+    }
+    .social-icon:hover i {
+      color: #fff;
+    }
     .social-icon[data-tooltip]::before {
       content: attr(data-tooltip);
       position: absolute;
@@ -221,6 +420,22 @@
     .social-icon:hover[data-tooltip]::before {
       opacity: 1;
       visibility: visible;
+    }
+    @media (max-width: 768px) {
+      .footer-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+      }
+      .footer-copyright, .footer-address, .footer-social {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+      .footer-address {
+        margin: 8px 0;
+      }
     }
 
     .popup-tooltip[data-tooltip]::before {
@@ -309,6 +524,13 @@
       grid-template-columns: auto 1fr auto;
       align-items: center;
       margin-bottom: 16px;
+      transition: all 0.3s ease;
+    }
+    .modal-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      background: rgba(255,255,255,.05);
+      border-radius: 16px;
     }
     .modal-card-content {
       padding: 0 16px;
@@ -484,40 +706,71 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 50px;
-      height: 50px;
-      display: flex;
+      width: 40px;
+      height: 40px;
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border-radius: 50%;
+      display: none; /* Skryto ve výchozím stavu pro desktop */
       align-items: center;
       justify-content: center;
-      color: #fff;
-      font-size: 24px;
       cursor: pointer;
-      background: rgba(0,0,0,0.4);
+      z-index: 5;
       border: none;
-      border-radius: 50%;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
       transition: all 0.3s ease;
-      z-index: 10;
     }
     .lightbox-nav:hover {
       background: var(--accent);
     }
-    .lightbox-prev {
-      left: 20px;
+    .lightbox-nav.prev {
+      left: 5px;
     }
-    .lightbox-next {
-      right: 20px;
+    .lightbox-nav.next {
+      right: 5px;
     }
-    @media (max-width: 768px) {
-      .lightbox-nav {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-      }
-      .lightbox-prev {
-        left: 10px;
-      }
-      .lightbox-next {
-        right: 10px;
+    .lightbox-nav i {
+      font-size: 18px;
+    }
+
+    /* USP boxes */
+    .usp-container {
+      display: flex;
+      gap: 24px;
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
+    .usp-box {
+      flex: 1;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .usp-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      background: rgba(255,255,255,.07);
+    }
+    .usp-box i {
+      font-size: 32px;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .usp-box h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    .usp-box p {
+      color: var(--muted);
+      margin: 0;
+    }
+    @media (max-width:768px) {
+      .usp-container {
+        flex-direction: column;
       }
     }
 
@@ -533,6 +786,95 @@
       white-space: nowrap;
       border-width: 0;
     }
+    .pusobnost {
+      font-size: 16px;
+      margin-bottom: 24px;
+      color: var(--muted);
+    }
+    .pusobnost i {
+      color: var(--accent);
+      margin-right: 5px;
+    }
+
+    .gallery-container {
+      position: relative;
+    }
+    .gallery-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border-radius: 50%;
+      display: none; /* Skryto ve výchozím stavu pro desktop */
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 5;
+      border: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+    .gallery-nav:hover {
+      background: var(--accent);
+    }
+    .gallery-nav.prev {
+      left: 5px;
+    }
+    .gallery-nav.next {
+      right: 5px;
+    }
+    .gallery-nav i {
+      font-size: 18px;
+    }
+    .gallery-nav.disabled {
+      opacity: 0.4;
+      cursor: default;
+      pointer-events: none;
+      background: rgba(0,0,0,0.3);
+    }
+
+    /* Zobrazení navigačních šipek pouze na mobilních zařízeních */
+    @media (max-width:600px) {
+      .gallery-nav {
+        display: flex;
+      }
+    }
+
+    /* Navigační indikátory posunu a scroll snap pro lepší UX */
+    @media (max-width:600px) {
+      .gallery {
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 16px 16px 16px; /* Přidán padding pro lepší viditelnost začátku/konce */
+        position: relative;
+      }
+      .gallery figure {
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+      }
+      /* Přidán gradient indikátor pro zobrazení konce galerie */
+      .gallery-container::after,
+      .gallery-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 16px; /* Srovnáno s paddingem galerie */
+        width: 30px;
+        z-index: 1;
+        pointer-events: none;
+      }
+      .gallery-container::after {
+        right: 0;
+        background: linear-gradient(to right, rgba(11,11,11,0), rgba(11,11,11,0.7));
+      }
+      .gallery-container::before {
+        left: 0;
+        background: linear-gradient(to left, rgba(11,11,11,0), rgba(11,11,11,0.7));
+      }
+    }
   </style>
 </head>
 <body>
@@ -546,11 +888,42 @@
         <span></span>
       </div>
       <nav id="mainNav" role="navigation" aria-label="Hlavní navigace">
-        <a href="#sluzby">Služby</a>
-        <a href="#o-mne">O nás</a>
+        <a href="#nase-sluzby">Naše služby</a>
+        <a href="#co-nabizime">Co nabízíme</a>
         <a href="#postup">Jak pracujeme</a>
         <a href="#reference">Reference</a>
-        <button id="poptavkaBtn" class="btn" type="button" aria-haspopup="dialog">Kontaktujte nás</button>
+        
+        <!-- Kontaktní informace v menu pro mobilní zařízení -->
+        <div class="nav-contacts">
+          <h4 class="nav-contacts-heading">Kontaktujte nás</h4>
+          <a href="tel:+420607179061" class="nav-contact-item">
+            <i class="fas fa-phone"></i>
+            <div class="nav-contact-text">
+              <div>Jiří Votava</div>
+              <div>+420 607 179 061</div>
+            </div>
+          </a>
+          <a href="tel:+420607181228" class="nav-contact-item">
+            <i class="fas fa-phone"></i>
+            <div class="nav-contact-text">
+              <div>Václav Matula</div>
+              <div>+420 607 181 228</div>
+            </div>
+          </a>
+          <a href="mailto:info@podlahyvm.cz" class="nav-contact-item">
+            <i class="fas fa-envelope"></i>
+            <div class="nav-contact-text">
+              <div>Napište nám</div>
+              <div>info@podlahyvm.cz</div>
+            </div>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100063787053429" target="_blank" rel="noopener noreferrer" class="nav-contact-item">
+            <i class="fab fa-facebook-f"></i>
+            <div class="nav-contact-text">
+              <div>Sledujte nás na Facebooku</div>
+            </div>
+          </a>
+        </div>
       </nav>
     </div>
   </header>
@@ -558,29 +931,79 @@
   <main role="main">
     <section class="section hero hero-bg">
       <div class="container">
-        <h1>Precizní podlahy pro domov i firmu</h1>
-        <p class="lead">Lití a pokládka podlah, koberců, suchá výstavba podlah. Férová domluva, čistá práce, dodržení termínů.</p>
-        <button id="poptavkaBtn2" class="btn" type="button">Chci cenovou nabídku</button>
-      </div>
-    </section>
-
-    <section id="sluzby" class="section surface">
-      <div class="container">
-        <h2>S čím vám pomůžeme</h2>
-        <p class="lead">Od přípravy podkladu až po finální lištu.</p>
-        <div class="grid grid-3">
-          <div class="card"><span><i class="fas fa-ruler"></i></span><div><h3>Pokládka podlah</h3><p>Vinyl, laminát, dřevěné a plovoucí podlahy.</p></div></div>
-          <div class="card"><span><i class="fas fa-hammer"></i></span><div><h3>Renovace a opravy</h3><p>Broušení, lokální opravy, výměna poškozených lamel.</p></div></div>
-          <div class="card"><span><i class="fas fa-drafting-compass"></i></span><div><h3>Příprava a vyrovnání</h3><p>Měření vlhkosti, nivelace, kročejová izolace.</p></div></div>
+        <div class="hero-content">
+          <h1>Precizní podlahy pro domov i firmu</h1>
+          <p class="lead">Lití a pokládka podlah, koberců, suchá výstavba podlah. Férová domluva, čistá práce, dodržení termínů.</p>
+          <button id="poptavkaBtn2" class="btn" type="button">Chci cenovou nabídku</button>
         </div>
       </div>
     </section>
 
-    <section id="o-mne" class="section">
+    <section id="nase-sluzby" class="section surface">
       <div class="container">
-        <h2>O nás</h2>
-        <p class="lead">Krátce o zkušenostech a přístupu k práci.</p>
-        <p>Jmenuji se <strong>Jan Novák</strong> a podlahám se věnuji více než 12 let...</p>
+        <h2>S čím vám pomůžeme</h2>
+        <p class="lead">Od přípravy podkladu až po finální lištu.</p>
+        <div class="grid grid-3">
+          <div class="card"><span><i class="fas fa-comments"></i></span><div><h3>Odborné poradenství</h3><p>Konzultace k výběru vhodných materiálů a technologií.</p></div></div>
+          <div class="card"><span><i class="fas fa-fill-drip"></i></span><div><h3>Lití podlah</h3><p>Betonové nebo anhydritové podlahy.</p></div></div>
+          <div class="card"><span><i class="fas fa-hammer"></i></span><div><h3>Pokládka podlah</h3><p>Koberce, vinylové podlahy, třívrstvé podlahy, PVC, plovoucí podlahy</p></div></div>
+
+          <div class="card"><span><i class="fas fa-drafting-compass"></i></span><div><h3>Suchá výstavba podlah</h3><p>OSB, Cetris</p></div></div>
+          <div class="card"><span><i class="fas fa-ruler-combined"></i></span><div><h3>Příprava a vyrovnání</h3><p>Měření vlhkosti, nivelace, kročejová izolace.</p></div></div>
+          <div class="card"><span><i class="fas fa-tools"></i></span><div><h3>Renovace a opravy</h3><p>Broušení, lokální opravy, výměna poškozených lamel.</p></div></div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="co-nabizime" class="section">
+      <div class="container">
+        <h2>Co nabízíme</h2>
+        <p class="lead">Kvalitní podlahářské práce s důrazem na detail a spokojenost zákazníka.</p>
+        
+        <div class="usp-container">
+          <div class="usp-box">
+            <i class="fas fa-swatchbook"></i>
+            <h3>Vzorníky podlah k dispozici</h3>
+            <p>Možnost výběru podlah přímo z našich vzorníků během konzultace u vás doma.</p>
+          </div>
+          <div class="usp-box">
+            <i class="fas fa-calculator"></i>
+            <h3>Zaměření a nabídka zdarma</h3>
+            <p>Přijedeme k vám, zaměříme prostor a připravíme detailní cenovou nabídku zcela zdarma.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="liti-podlah-ikony" style="display: none;">
+      <div class="container" style="text-align: center;">
+        <h3 style="margin-bottom: 20px;">Návrhy ikon pro "Lití podlah"</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+          <div style="display: flex; flex-direction: column; align-items: center; width: 100px;">
+            <i class="fas fa-fill-drip" style="font-size: 32px; color: var(--accent); margin-bottom: 8px;"></i>
+            <div>fill-drip</div>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; width: 100px;">
+            <i class="fas fa-trowel" style="font-size: 32px; color: var(--accent); margin-bottom: 8px;"></i>
+            <div>trowel</div>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; width: 100px;">
+            <i class="fas fa-trowel-bricks" style="font-size: 32px; color: var(--accent); margin-bottom: 8px;"></i>
+            <div>trowel-bricks</div>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; width: 100px;">
+            <i class="fas fa-paint-roller" style="font-size: 32px; color: var(--accent); margin-bottom: 8px;"></i>
+            <div>paint-roller</div>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; width: 100px;">
+            <i class="fas fa-brush" style="font-size: 32px; color: var(--accent); margin-bottom: 8px;"></i>
+            <div>brush</div>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; width: 100px;">
+            <i class="fas fa-droplet" style="font-size: 32px; color: var(--accent); margin-bottom: 8px;"></i>
+            <div>droplet</div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -589,10 +1012,34 @@
         <h2>Jak pracujeme</h2>
         <p class="lead">Jednoduchý a rychlý průběh zakázky.</p>
         <div class="steps">
-          <div class="step"><div class="num">1</div><div><strong>Poptávka</strong><br>Krátce probereme typ podlahy a termín.</div></div>
-          <div class="step"><div class="num">2</div><div><strong>Zaměření</strong><br>Přijedu na místo, zaměřím a doporučím postup.</div></div>
-          <div class="step"><div class="num">3</div><div><strong>Cenová nabídka</strong><br>Pošlu přehlednou kalkulaci.</div></div>
-          <div class="step"><div class="num">4</div><div><strong>Realizace</strong><br>Čistá práce, předání a záruka na provedení.</div></div>
+          <div class="step">
+            <div class="num">1</div>
+            <div>
+              <strong>Poptávka</strong><br>
+              Krátce probereme typ podlahy a termín.
+            </div>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <div>
+              <strong>Zaměření</strong><br>
+              Přijedu na místo, zaměřím a doporučím postup.
+            </div>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <div>
+              <strong>Cenová nabídka</strong><br>
+              Pošlu přehlednou kalkulaci.
+            </div>
+          </div>
+          <div class="step">
+            <div class="num">4</div>
+            <div>
+              <strong>Realizace</strong><br>
+              Čistá práce, předání a záruka na provedení.
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -600,32 +1047,68 @@
     <section id="reference" class="section">
       <div class="container">
         <h2>Realizace a reference</h2>
-        <p class="lead">Vybrané ukázky posledních projektů.</p>
-        <div class="gallery">
-          <figure>
-            <img src="images/20220409_173041.jpg" alt="Pokládka vinylové podlahy v obývacím pokoji, moderní šedá podlaha" tabindex="0" />
-            <figcaption>Vinyl – obývací pokoj</figcaption>
-            <div class="hover-text">
-              <i class="fas fa-search-plus"></i>
-              <span>Zvětšit</span>
-            </div>
-          </figure>
-          <figure>
-            <img src="images/20220619_154848.jpg" alt="Instalace laminátové podlahy v novostavbě, světlý dřevěný dekor" tabindex="0" />
-            <figcaption>Laminát – novostavba</figcaption>
-            <div class="hover-text">
-              <i class="fas fa-search-plus"></i>
-              <span>Zvětšit</span>
-            </div>
-          </figure>
-          <figure>
-            <img src="images/20220817_072323.jpg" alt="Renovace původní dřevěné podlahy, broušení a lakování parket" tabindex="0" />
-            <figcaption>Dřevěná podlaha – renovace</figcaption>
-            <div class="hover-text">
-              <i class="fas fa-search-plus"></i>
-              <span>Zvětšit</span>
-            </div>
-          </figure>
+        <p class="lead">Vybrané ukázky našich projektů.</p>
+        <div class="gallery-container">
+          <button class="gallery-nav prev" aria-label="Předchozí reference"><i class="fas fa-chevron-left"></i></button>
+          <button class="gallery-nav next" aria-label="Další reference"><i class="fas fa-chevron-right"></i></button>
+          <div class="gallery">
+            <figure>
+              <img src="images/podlaha-pred-podkladkou.jpg" alt="Podlaha před pokládkou podkladu" tabindex="0" />
+              <figcaption>Podlaha před pokládkou podkladu</figcaption>
+              <div class="hover-text">
+                <i class="fas fa-search-plus"></i>
+                <span>Zvětšit</span>
+              </div>
+            </figure>
+            <figure>
+              <img src="images/podlahy-finalni-podkladka-pvc.jpg" alt="Finální pokládka PVC podlahy" tabindex="0" />
+              <figcaption>Finální pokládka PVC podlahy</figcaption>
+              <div class="hover-text">
+                <i class="fas fa-search-plus"></i>
+                <span>Zvětšit</span>
+              </div>
+            </figure>
+            <figure>
+              <img src="images/podlahy-podkladka-vinyl.jpg" alt="Pokládka vinylové podkladové vrstvy" tabindex="0" />
+              <figcaption>Pokládka vinylové podkladové vrstvy</figcaption>
+              <div class="hover-text">
+                <i class="fas fa-search-plus"></i>
+                <span>Zvětšit</span>
+              </div>
+            </figure>
+            <figure>
+              <img src="images/montaz-zatezovych-kobercu-a-pvc-komercni-prostory.jpg" alt="Montáž zátěžových koberců a PVC v komerčních prostorách" tabindex="0" />
+              <figcaption>Montáž zátěžových koberců a PVC v komerčních prostorách</figcaption>
+              <div class="hover-text">
+                <i class="fas fa-search-plus"></i>
+                <span>Zvětšit</span>
+              </div>
+            </figure>
+            <figure>
+              <img src="images/schody-zakryte-osb-deskou-pred-lepenim-pvc.jpg" alt="Schody s OSB deskou před lepením PVC" tabindex="0" />
+              <figcaption>Schody s OSB deskou před lepením PVC</figcaption>
+              <div class="hover-text">
+                <i class="fas fa-search-plus"></i>
+                <span>Zvětšit</span>
+              </div>
+            </figure>
+            <figure>
+              <img src="images/schody-z-vinylovych-dilcu-s-bezbarierovou-hranou.jpg" alt="Schody z vinylových dílců s bezbariérovou hranou" tabindex="0" />
+              <figcaption>Schody z vinylových dílců s bezbariérovou hranou</figcaption>
+              <div class="hover-text">
+                <i class="fas fa-search-plus"></i>
+                <span>Zvětšit</span>
+              </div>
+            </figure>
+            <figure>
+              <img src="images/schody-polozene-pvc-s-prekryvacimi-schodovymi-hranami-.jpg" alt="Schody s překrývacími schodovými hranami" tabindex="0" />
+              <figcaption>Schody s překrývacími schodovými hranami</figcaption>
+              <div class="hover-text">
+                <i class="fas fa-search-plus"></i>
+                <span>Zvětšit</span>
+              </div>
+            </figure>
+          </div>
         </div>
       </div>
     </section>
@@ -634,24 +1117,25 @@
       <div class="container">
         <h2>Kontakt</h2>
         <p class="lead">Ozvěte se – domluvíme si nezávazné zaměření a nabídku.</p>
+        <p class="pusobnost"><i class="fas fa-map-marker-alt"></i> <strong>Hlavní působnost:</strong> Jihlava a okolí, Kraj Vysočina</p>
         <div class="grid kontakt-grid">
-          <section class="card" aria-label="Kontakt Jan Novák">
+          <section class="card" aria-label="Kontakt Jiří Votava">
             <span><i class="fas fa-phone" aria-hidden="true"></i></span>
             <div>
-              <strong>Jan Novák</strong><br>
-              <a href="tel:+420777000000" class="contact-link">+420&nbsp;777&nbsp;000&nbsp;000</a>
+              <strong>Jiří Votava</strong><br>
+              <a href="tel:+420607179061" class="contact-link">+420&nbsp;607&nbsp;179&nbsp;061</a>
               <div class="btn-wrapper">
-                <a href="tel:+420777000000" class="btn btn-sm">Zavolat</a>
+                <a href="tel:+420607179061" class="btn btn-sm">Zavolat</a>
               </div>
             </div>
           </section>
-          <section class="card" aria-label="Kontakt Petr Novák">
+          <section class="card" aria-label="Kontakt Václav Matula">
             <span><i class="fas fa-phone" aria-hidden="true"></i></span>
             <div>
-              <strong>Petr Novák</strong><br>
-              <a href="tel:+420777111111" class="contact-link">+420&nbsp;777&nbsp;111&nbsp;111</a>
+              <strong>Václav Matula</strong><br>
+              <a href="tel:+420607181228" class="contact-link">+420&nbsp;607&nbsp;181&nbsp;228</a>
               <div class="btn-wrapper">
-                <a href="tel:+420777111111" class="btn btn-sm">Zavolat</a>
+                <a href="tel:+420607181228" class="btn btn-sm">Zavolat</a>
               </div>
             </div>
           </section>
@@ -659,9 +1143,9 @@
             <span><i class="fas fa-envelope" aria-hidden="true"></i></span>
             <div>
               <strong>Napište nám</strong><br>
-              <a href="mailto:info@podlahar-novak.cz" class="contact-link">info@podlahar-novak.cz</a>
+              <a href="mailto:info@podlahyvm.cz" class="contact-link">info@podlahyvm.cz</a>
               <div class="btn-wrapper">
-                <a href="mailto:info@podlahar-novak.cz" class="btn btn-sm">Napsat e-mail</a>
+                <a href="mailto:info@podlahyvm.cz" class="btn btn-sm">Napsat e-mail</a>
               </div>
             </div>
           </section>
@@ -670,19 +1154,18 @@
     </section>
   </main>
 
-  <footer class="section">
-    <div class="container footer-content">
-      <div class="footer-info">
-        <div>© <span id="y"></span> Podlahářské práce V-M</div>
-        <address class="company-address">Luka nad Jihlavou, 1.Máje 100<br>IČO: 12345678</address>
-      </div>
-      <div class="footer-links">
-        <div class="social-icons">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook Podlahářské práce V-M" class="social-icon" data-tooltip="Facebook">
+  <footer>
+    <div class="container">
+      <div class="footer-row">
+        <div class="footer-copyright">
+          © <span id="y"></span> Podlahářské práce V-M
+        </div>
+        <address class="footer-address">
+          <strong>Sídlo:</strong> Luka nad Jihlavou, 1.Máje 100, IČO: 07743734
+        </address>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=100063787053429" target="_blank" rel="noopener noreferrer" aria-label="Facebook Podlahářské práce V-M" class="social-icon" data-tooltip="Sledujte nás na Facebooku">
             <i class="fab fa-facebook-f" aria-hidden="true"></i>
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram Podlahářské práce V-M" class="social-icon" data-tooltip="Instagram">
-            <i class="fab fa-instagram" aria-hidden="true"></i>
           </a>
         </div>
       </div>
@@ -695,18 +1178,14 @@
     <div class="modal-content">
       <span class="modal-close" id="modalClose" title="Zavřít" aria-label="Zavřít">&times;</span>
       <h3 style="text-align: center; font-size: 28px; margin-bottom: 30px;">Kontaktujte nás</h3>
-      <div class="card modal-card"><span><i class="fas fa-phone" aria-hidden="true"></i></span><div class="modal-card-content"><strong>Jan Novák</strong><br><a href="tel:+420777000000" class="contact-link">+420&nbsp;777&nbsp;000&nbsp;000</a></div><div class="modal-card-action"><a href="tel:+420777000000" class="btn btn-sm">Zavolat</a></div></div>
-      <div class="card modal-card"><span><i class="fas fa-phone" aria-hidden="true"></i></span><div class="modal-card-content"><strong>Petr Novák</strong><br><a href="tel:+420777111111" class="contact-link">+420&nbsp;777&nbsp;111&nbsp;111</a></div><div class="modal-card-action"><a href="tel:+420777111111" class="btn btn-sm">Zavolat</a></div></div>
-      <div class="card modal-card"><span><i class="fas fa-envelope" aria-hidden="true"></i></span><div class="modal-card-content"><strong>Napište nám</strong><br><a href="mailto:info@podlahar-novak.cz" class="contact-link">info@podlahar-novak.cz</a></div><div class="modal-card-action"><a href="mailto:info@podlahar-novak.cz" class="btn btn-sm">Napsat e-mail</a></div></div>
+      <div class="card modal-card"><span><i class="fas fa-phone" aria-hidden="true"></i></span><div class="modal-card-content"><strong>Jiří Votava</strong><br><a href="tel:+420607179061" class="contact-link">+420&nbsp;607&nbsp;179&nbsp;061</a></div><div class="modal-card-action"><a href="tel:+420607179061" class="btn btn-sm">Zavolat</a></div></div>
+      <div class="card modal-card"><span><i class="fas fa-phone" aria-hidden="true"></i></span><div class="modal-card-content"><strong>Václav Matula</strong><br><a href="tel:+420607181228" class="contact-link">+420&nbsp;607&nbsp;181&nbsp;228</a></div><div class="modal-card-action"><a href="tel:+420607181228" class="btn btn-sm">Zavolat</a></div></div>
+      <div class="card modal-card"><span><i class="fas fa-envelope" aria-hidden="true"></i></span><div class="modal-card-content"><strong>Napište nám</strong><br><a href="mailto:info@podlahyvm.cz" class="contact-link">info@podlahyvm.cz</a></div><div class="modal-card-action"><a href="mailto:info@podlahyvm.cz" class="btn btn-sm">Napsat e-mail</a></div></div>
 
       <div style="margin-top: 20px; text-align: center;">
-        <p style="margin-bottom: 10px;">Najdete nás také na sociálních sítích:</p>
-        <div class="social-icons" style="justify-content: center;">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook Podlahářské práce V-M" class="social-icon popup-tooltip" data-tooltip="Facebook">
+        <div class="social-icons" style="display: flex; justify-content: center;">
+          <a href="https://www.facebook.com/profile.php?id=100063787053429" target="_blank" rel="noopener noreferrer" aria-label="Facebook Podlahářské práce V-M" class="social-icon popup-tooltip" data-tooltip="Facebook">
             <i class="fab fa-facebook-f" aria-hidden="true"></i>
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram Podlahářské práce V-M" class="social-icon popup-tooltip" data-tooltip="Instagram">
-            <i class="fab fa-instagram" aria-hidden="true"></i>
           </a>
         </div>
       </div>
@@ -737,7 +1216,7 @@
         <p style="margin-bottom: 20px;">Máte právo rozhodnout, zda přijmete cookies či nikoliv. Přestože jsou nezbytné cookies nutné pro fungování webu, u ostatních typů cookies máte na výběr. Svůj souhlas můžete kdykoliv změnit smazáním cookies ve vašem prohlížeči.</p>
 
         <h4 style="font-size: 18px;">Kontaktujte nás</h4>
-        <p>Pokud máte jakékoliv dotazy ohledně našich zásad používání cookies, kontaktujte nás na emailu: <a href="mailto:info@podlahar-novak.cz">info@podlahar-novak.cz</a>.</p>
+        <p>Pokud máte jakékoliv dotazy ohledně našich zásad používání cookies, kontaktujte nás na emailu: <a href="mailto:info@podlahyvm.cz">info@podlahyvm.cz</a>.</p>
       </div>
 
       <div style="margin-top: 30px; text-align: center;">
@@ -749,13 +1228,15 @@
   <script>
     document.getElementById('y').textContent = String(new Date().getFullYear());
 
+    // Dynamické opakování stejného obsahu na více místech
+    function setupSharedContent() {
+      // Bez sdílení informací o působnosti
+    }
     // Attach event listeners once
     function attachModalListeners() {
-      // Contact modal buttons
-      document.querySelectorAll('#poptavkaBtn, #poptavkaBtn2').forEach(btn => {
-        btn.addEventListener('click', () => {
-          openModal('contactModal');
-        });
+      // Contact modal button in hero section
+      document.querySelector('#poptavkaBtn2').addEventListener('click', () => {
+        openModal('contactModal');
       });
 
       document.getElementById('modalClose').addEventListener('click', () => {
@@ -1020,6 +1501,142 @@
         }
       });
     }
+
+    // Swipe functionality for gallery
+    function addSwipeSupport() {
+      const gallery = document.querySelector('.gallery');
+      if (!gallery) return;
+      
+      let touchStartX = 0;
+      let touchEndX = 0;
+      let currentIndex = 0;
+      const images = document.querySelectorAll('.gallery figure');
+      const totalImages = images.length;
+      
+      // Gallery navigation buttons
+      const prevBtn = document.querySelector('.gallery-nav.prev');
+      const nextBtn = document.querySelector('.gallery-nav.next');
+      
+      // Update navigation button states
+      function updateNavButtons() {
+        // Disable previous button at first item
+        if (currentIndex === 0) {
+          prevBtn.classList.add('disabled');
+          prevBtn.setAttribute('aria-disabled', 'true');
+        } else {
+          prevBtn.classList.remove('disabled');
+          prevBtn.setAttribute('aria-disabled', 'false');
+        }
+        
+        // Disable next button at last item
+        if (currentIndex === totalImages - 1) {
+          nextBtn.classList.add('disabled');
+          nextBtn.setAttribute('aria-disabled', 'true');
+        } else {
+          nextBtn.classList.remove('disabled');
+          nextBtn.setAttribute('aria-disabled', 'false');
+        }
+      }
+      
+      if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+            scrollToImage(currentIndex);
+            updateNavButtons();
+          }
+        });
+        
+        nextBtn.addEventListener('click', () => {
+          if (currentIndex < totalImages - 1) {
+            currentIndex++;
+            scrollToImage(currentIndex);
+            updateNavButtons();
+          }
+        });
+        
+        // Initialize button states
+        updateNavButtons();
+      }
+      
+      // Touch events for mobile swipe
+      gallery.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, {passive: true});
+      
+      gallery.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, {passive: true});
+      
+      function handleSwipe() {
+        // Detect swipe direction
+        if (touchEndX < touchStartX - 50 && currentIndex < totalImages - 1) { // Swipe left
+          // Next image
+          currentIndex++;
+          scrollToImage(currentIndex);
+          updateNavButtons();
+        }
+        
+        if (touchEndX > touchStartX + 50 && currentIndex > 0) { // Swipe right
+          // Previous image
+          currentIndex--;
+          scrollToImage(currentIndex);
+          updateNavButtons();
+        }
+      }
+      
+      function scrollToImage(index) {
+        if (images[index]) {
+          images[index].scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'center'
+          });
+        }
+      }
+      
+      // Listen for scroll events to update the current index
+      gallery.addEventListener('scroll', () => {
+        // Throttle the scroll event
+        if (!gallery.scrollTimeout) {
+          gallery.scrollTimeout = setTimeout(() => {
+            // Find which image is most visible
+            let closestImage = 0;
+            let closestDistance = Infinity;
+            
+            const galleryRect = gallery.getBoundingClientRect();
+            const galleryCenter = galleryRect.left + galleryRect.width / 2;
+            
+            images.forEach((img, i) => {
+              const imgRect = img.getBoundingClientRect();
+              const imgCenter = imgRect.left + imgRect.width / 2;
+              const distance = Math.abs(galleryCenter - imgCenter);
+              
+              if (distance < closestDistance) {
+                closestDistance = distance;
+                closestImage = i;
+              }
+            });
+            
+            if (closestImage !== currentIndex) {
+              currentIndex = closestImage;
+              updateNavButtons();
+            }
+            
+            gallery.scrollTimeout = null;
+          }, 100);
+        }
+      }, {passive: true});
+    }
+    
+    // Initialize all modal event listeners when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      attachModalListeners();
+      initLightbox();
+      addSwipeSupport();
+      setupSharedContent();
+    });
   </script>
 
   <!-- Cookie consent banner -->
@@ -1097,6 +1714,7 @@
       function manageCookieBanner() {
         if (!hasConsent()) {
           setTimeout(() => {
+
             cookieBanner.classList.add('active');
           }, 1000);
         } else {
@@ -1119,12 +1737,6 @@
       // Initialize
       manageCookieBanner();
     })();
-
-    // Initialize all modal event listeners when DOM is loaded
-    document.addEventListener('DOMContentLoaded', () => {
-      attachModalListeners();
-      initLightbox();
-    });
   </script>
 
   <!-- Image lightbox -->
