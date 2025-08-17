@@ -4,19 +4,130 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Podlahářské práce V-M</title>
-  <meta name="description" content="Pokládka vinylu, laminátu a dřevěných podlah. Precizní práce, fér ceny. Působíme v Jihlavě a v Kraji Vysočina." />
+  <meta name="description" content="Lití podlah, pokládka koberců, vinylu, plouvoucích podlah. Precizní práce, fér ceny. Působíme v Jihlavě a v Kraji Vysočina." />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.podlahyvm.cz/" />
+  <meta property="og:title" content="Podlahářské práce V-M | Jihlava a Kraj Vysočina" />
+  <meta property="og:description" content="Lití a pokládka podlah, koberců, suchá výstavba podlah. Kvalitní práce, férové ceny, dodržení termínů." />
+  <meta property="og:image" content="https://www.podlahyvm.cz/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="cs_CZ" />
+  <meta property="og:site_name" content="Podlahářské práce V-M" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://www.podlahyvm.cz/" />
+  <meta name="twitter:title" content="Podlahářské práce V-M | Jihlava a Kraj Vysočina" />
+  <meta name="twitter:description" content="Lití a pokládka podlah, koberců, suchá výstavba podlah. Kvalitní práce, férové ceny, dodržení termínů." />
+  <meta name="twitter:image" content="https://www.podlahyvm.cz/og-image.jpg" />
+
   <!-- Favicons -->
   <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" color="#9e9e9e">
+  <link rel="apple-touch-icon" href="apple-touch-icon.svg">
   <meta name="theme-color" content="#0b0b0b">
   <meta name="msapplication-TileColor" content="#0b0b0b">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Strukturovaná data Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Podlahářské práce V-M",
+    "image": "https://www.podlahyvm.cz/og-image.jpg",
+    "url": "https://www.podlahyvm.cz/",
+    "telephone": "+420607179061",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1.Máje 100",
+      "addressLocality": "Luka nad Jihlavou",
+      "postalCode": "58822",
+      "addressCountry": "CZ"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 49.3695992,
+      "longitude": 15.7017456
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:00",
+      "closes": "17:00"
+    },
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=100063787053429"
+    ],
+    "priceRange": "$$",
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.3960222,
+        "longitude": 15.5903542
+      },
+      "geoRadius": "50000"
+    },
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Lití podlah",
+          "description": "Betonové nebo anhydritové podlahy."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Pokládka podlah",
+          "description": "Koberce, vinylové podlahy, třívrstvé podlahy, PVC, plovoucí podlahy"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Suchá výstavba podlah",
+          "description": "OSB, Cetris"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Příprava a vyrovnání",
+          "description": "Měření vlhkosti, nivelace, kročejová izolace."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Renovace a opravy",
+          "description": "Broušení, lokální opravy, výměna poškozených lamel."
+        }
+      }
+    ]
+  }
+  </script>
   <style>
     :root{
       --bg: #0b0b0b;
       --surface: #151210;
       --accent: #5a3a2d;
+      --icon-color: #9e9e9e; /* Nová šedá barva pro ikony */
       --text: #ffffff;
       --muted: #e0e0e0;
       --nav-h: 64px;
@@ -28,7 +139,7 @@
     .nav-inner{display:flex;align-items:center;justify-content:space-between;height:100%}
     .logo {font-weight: bold; color: var(--text); transition: color 0.3s; position: relative; font-size: 17px;}
     .logo:hover {color: #fff;}
-    .logo i {margin-right: 10px; color: var(--accent); font-size: 24px;}
+    .logo i {margin-right: 10px; color: var(--icon-color); font-size: 24px;}
     .logo::after {content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px; background: var(--accent); transform: scaleX(0); transition: transform 0.3s;}
     .logo:hover::after {transform: scaleX(1);}
     nav {display: flex; align-items: center; gap: 32px;}
@@ -45,7 +156,17 @@
     .btn::after, .btn:hover::after {transform: scaleX(0);}
     .btn-sm{padding:8px 12px;font-size:14px;height:auto;line-height:normal;}
     .btn-wrapper{margin-top:12px}
-    .contact-link{display:inline-block;margin-bottom:4px;}
+    .contact-link{display:inline-block;margin-bottom:4px; word-break: break-word;}
+
+    @media (max-width: 400px) {
+      .btn-sm {
+        padding: 8px 10px;
+        font-size: 13px;
+      }
+      .contact-link {
+        font-size: 14px;
+      }
+    }
 
     /* Hamburger menu */
     .hamburger-menu {display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 21px; cursor: pointer;}
@@ -63,7 +184,7 @@
       nav {display: none; flex-direction: column; position: absolute; top: var(--nav-h); left: 0; right: 0; background: rgba(0,0,0,.95); backdrop-filter: blur(8px); padding: 16px; align-items: flex-start; gap: 12px; border-bottom: 1px solid rgba(255,255,255,.08);}
       nav.active {display: flex;}
       nav a {font-size: 16px; width: 100%; padding: 8px 24px;}
-      
+
       /* Kontaktní sekce v menu */
       .nav-contacts {
         border-top: 1px solid rgba(255,255,255,.08);
@@ -86,7 +207,7 @@
         margin-bottom: 18px;
       }
       .nav-contact-item i {
-        color: var(--accent);
+        color: var(--icon-color);
         font-size: 16px;
         width: 20px;
         text-align: center;
@@ -131,7 +252,7 @@
       background-size:cover;background-position:center;filter:saturate(1.15) brightness(1.4);}
     .hero h1{font-size:clamp(28px, 4.2vw, 48px);margin:0 0 10px}
     .hero .lead{max-width:820px}
-    
+
     /* Vylepšení čitelnosti textu na světlém pozadí */
     .hero-content {
       background-color: rgba(0,0,0,.2);
@@ -184,12 +305,30 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
       background: rgba(255,255,255,.05);
     }
-    .card span {display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; font-size: 24px; color: var(--accent);}
+    .card span {display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; font-size: 24px; color: var(--icon-color);}
     .card i {font-size: 24px;}
     .card a{color:var(--text);text-decoration:none; position: relative; transition: color 0.3s;}
     .card a:hover{color:#fff; text-decoration: none;}
     .card a::after {content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; background: var(--accent); transform: scaleX(0); transition: transform 0.3s;}
     .card a:not(.btn):hover::after {transform: scaleX(1);}
+
+    @media (max-width: 370px) {
+      .card {
+        flex-direction: column;
+        text-align: center;
+        padding: 16px 10px;
+      }
+      .card div {
+        width: 100%;
+      }
+      .card .btn-wrapper {
+        width: 100%;
+      }
+      .card .btn {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
 
     .steps{display:grid;gap:16px;grid-template-columns:repeat(4,1fr)}
     @media (max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
@@ -211,7 +350,7 @@
     .step .num{
       font-size: 34px;
       font-weight: 800;
-      color: var(--accent);
+      color: var(--icon-color);
       margin-right: 22px;
       line-height: 1;
       width: 35px;
@@ -519,6 +658,23 @@
     .modal-close{position:absolute;top:20px;right:20px;cursor:pointer;font-size:30px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;transition:all 0.3s ease;}
     .modal-close:hover{transform:scale(1.2);color:var(--accent);}
 
+    @media (max-width: 600px) {
+      .modal-content {
+        padding: 60px 24px;
+        width: 95%;
+      }
+      .modal-close {
+        top: 15px;
+        right: 15px;
+        font-size: 24px;
+        width: 32px;
+        height: 32px;
+        background: rgba(0,0,0,0.2);
+        border-radius: 50%;
+        z-index: 10;
+      }
+    }
+
     .modal-card {
       display: grid;
       grid-template-columns: auto 1fr auto;
@@ -537,6 +693,45 @@
     }
     .modal-card-action {
       justify-self: end;
+    }
+
+    @media (max-width: 500px) {
+      .modal-card {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        padding: 12px;
+      }
+      .modal-card-content {
+        grid-column: 2;
+        grid-row: 1;
+      }
+      .modal-card-action {
+        grid-column: 1 / span 2;
+        grid-row: 2;
+        justify-self: center;
+        margin-top: 10px;
+        width: 100%;
+      }
+      .modal-card-action .btn {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+        word-break: keep-all;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    @media (max-width: 350px) {
+      .modal-content {
+        padding: 50px 16px 40px;
+      }
+      .modal-card {
+        padding: 10px 8px;
+      }
+      .modal-card span i {
+        font-size: 20px;
+      }
     }
 
     /* Cookie consent banner */
@@ -762,7 +957,7 @@
     }
     .usp-box i {
       font-size: 32px;
-      color: var(--accent);
+      color: var(--icon-color);
       margin-bottom: 16px;
       display: block;
     }
@@ -798,7 +993,7 @@
       color: var(--muted);
     }
     .pusobnost i {
-      color: var(--accent);
+      color: var(--icon-color);
       margin-right: 5px;
     }
 
@@ -899,7 +1094,7 @@
         <a href="#postup">Jak pracujeme</a>
         <a href="#reference">Reference</a>
         <a href="#kontakt">Kontaktujte nás</a>
-        
+
         <!-- Kontaktní informace v menu pro mobilní zařízení -->
         <div class="nav-contacts">
           <h4 class="nav-contacts-heading">Kontaktujte nás</h4>
@@ -939,8 +1134,8 @@
     <section class="section hero hero-bg">
       <div class="container">
         <div class="hero-content">
-          <h1>Precizní podlahy pro domov i firmu</h1>
-          <p class="lead">Lití a pokládka podlah, koberců, suchá výstavba podlah. Férová domluva, čistá práce, dodržení termínů.</p>
+          <h1>Precizní podlahy pro domov i&nbsp;firmu</h1>
+          <p class="lead">Lití a&nbsp;pokládka podlah, koberců, suchá výstavba podlah. Férová domluva, čistá práce, dodržení termínů.</p>
           <button id="poptavkaBtn2" class="btn" type="button">Chci cenovou nabídku</button>
         </div>
       </div>
@@ -948,35 +1143,35 @@
 
     <section id="nase-sluzby" class="section surface">
       <div class="container">
-        <h2>S čím vám pomůžeme</h2>
+        <h2>S&nbsp;čím vám pomůžeme</h2>
         <p class="lead">Od přípravy podkladu až po finální lištu.</p>
         <div class="grid grid-3">
-          <div class="card"><span><i class="fas fa-comments"></i></span><div><h3>Odborné poradenství</h3><p>Konzultace k výběru vhodných materiálů a technologií.</p></div></div>
+          <div class="card"><span><i class="fas fa-comments"></i></span><div><h3>Odborné poradenství</h3><p>Konzultace k&nbsp;výběru vhodných materiálů a&nbsp;technologií.</p></div></div>
           <div class="card"><span><i class="fas fa-fill-drip"></i></span><div><h3>Lití podlah</h3><p>Betonové nebo anhydritové podlahy.</p></div></div>
           <div class="card"><span><i class="fas fa-hammer"></i></span><div><h3>Pokládka podlah</h3><p>Koberce, vinylové podlahy, třívrstvé podlahy, PVC, plovoucí podlahy</p></div></div>
 
           <div class="card"><span><i class="fas fa-drafting-compass"></i></span><div><h3>Suchá výstavba podlah</h3><p>OSB, Cetris</p></div></div>
-          <div class="card"><span><i class="fas fa-ruler-combined"></i></span><div><h3>Příprava a vyrovnání</h3><p>Měření vlhkosti, nivelace, kročejová izolace.</p></div></div>
-          <div class="card"><span><i class="fas fa-tools"></i></span><div><h3>Renovace a opravy</h3><p>Broušení, lokální opravy, výměna poškozených lamel.</p></div></div>
+          <div class="card"><span><i class="fas fa-ruler-combined"></i></span><div><h3>Příprava a&nbsp;vyrovnání</h3><p>Měření vlhkosti, nivelace, kročejová izolace.</p></div></div>
+          <div class="card"><span><i class="fas fa-tools"></i></span><div><h3>Renovace a&nbsp;opravy</h3><p>Broušení, lokální opravy, výměna poškozených lamel.</p></div></div>
         </div>
       </div>
     </section>
-    
+
     <section id="co-nabizime" class="section">
       <div class="container">
         <h2>Co nabízíme</h2>
-        <p class="lead">Kvalitní podlahářské práce s důrazem na detail a spokojenost zákazníka.</p>
-        
+        <p class="lead">Kvalitní podlahářské práce s&nbsp;důrazem na detail a&nbsp;spokojenost zákazníka.</p>
+
         <div class="usp-container">
           <div class="usp-box">
             <i class="fas fa-swatchbook"></i>
-            <h3>Vzorníky podlah k dispozici</h3>
-            <p>Možnost výběru podlah přímo z našich vzorníků během konzultace u vás doma.</p>
+            <h3>Vzorníky podlah k&nbsp;dispozici</h3>
+            <p>Možnost výběru podlah přímo z&nbsp;našich vzorníků během konzultace u&nbsp;vás doma.</p>
           </div>
           <div class="usp-box">
             <i class="fas fa-calculator"></i>
-            <h3>Zaměření a nabídka zdarma</h3>
-            <p>Přijedeme k vám, zaměříme prostor a připravíme detailní cenovou nabídku zcela zdarma.</p>
+            <h3>Zaměření a&nbsp;nabídka zdarma</h3>
+            <p>Přijedeme k&nbsp;vám, zaměříme prostor a&nbsp;připravíme detailní cenovou nabídku zcela zdarma.</p>
           </div>
         </div>
       </div>
@@ -1017,34 +1212,34 @@
     <section id="postup" class="section surface">
       <div class="container">
         <h2>Jak pracujeme</h2>
-        <p class="lead">Jednoduchý a rychlý průběh zakázky.</p>
+        <p class="lead">Jednoduchý a&nbsp;rychlý průběh zakázky.</p>
         <div class="steps">
           <div class="step">
             <div class="num">1</div>
             <div>
               <strong>Poptávka</strong><br>
-              Krátce probereme typ podlahy a termín.
+              Krátce probereme typ podlahy a&nbsp;termín.
             </div>
           </div>
           <div class="step">
             <div class="num">2</div>
             <div>
               <strong>Zaměření</strong><br>
-              Přijedu na místo, zaměřím a doporučím postup.
+              Přijedeme na místo, zaměříme a&nbsp;doporučíme postup.
             </div>
           </div>
           <div class="step">
             <div class="num">3</div>
             <div>
               <strong>Cenová nabídka</strong><br>
-              Pošlu přehlednou kalkulaci.
+              Pošleme přehlednou kalkulaci.
             </div>
           </div>
           <div class="step">
             <div class="num">4</div>
             <div>
               <strong>Realizace</strong><br>
-              Čistá práce, předání a záruka na provedení.
+              Čistá práce, předání a&nbsp;záruka na provedení.
             </div>
           </div>
         </div>
@@ -1053,14 +1248,14 @@
 
     <section id="reference" class="section">
       <div class="container">
-        <h2>Realizace a reference</h2>
+        <h2>Realizace a&nbsp;reference</h2>
         <p class="lead">Vybrané ukázky našich projektů.</p>
         <div class="gallery-container">
           <button class="gallery-nav prev" aria-label="Předchozí reference"><i class="fas fa-chevron-left"></i></button>
           <button class="gallery-nav next" aria-label="Další reference"><i class="fas fa-chevron-right"></i></button>
           <div class="gallery">
             <figure>
-              <img src="images/podlaha-pred-podkladkou.jpg" alt="Podlaha před pokládkou podkladu" tabindex="0" />
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="images/podlaha-pred-podkladkou.jpg" alt="Podlaha před pokládkou podkladu" tabindex="0" loading="lazy" class="lazy" />
               <figcaption>Podlaha před pokládkou podkladu</figcaption>
               <div class="hover-text">
                 <i class="fas fa-search-plus"></i>
@@ -1068,7 +1263,7 @@
               </div>
             </figure>
             <figure>
-              <img src="images/podlahy-finalni-podkladka-pvc.jpg" alt="Finální pokládka PVC podlahy" tabindex="0" />
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="images/podlahy-finalni-podkladka-pvc.jpg" alt="Finální pokládka PVC podlahy" tabindex="0" loading="lazy" class="lazy" />
               <figcaption>Finální pokládka PVC podlahy</figcaption>
               <div class="hover-text">
                 <i class="fas fa-search-plus"></i>
@@ -1076,7 +1271,7 @@
               </div>
             </figure>
             <figure>
-              <img src="images/podlahy-podkladka-vinyl.jpg" alt="Pokládka vinylové podkladové vrstvy" tabindex="0" />
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="images/podlahy-podkladka-vinyl.jpg" alt="Pokládka vinylové podkladové vrstvy" tabindex="0" loading="lazy" class="lazy" />
               <figcaption>Pokládka vinylové podkladové vrstvy</figcaption>
               <div class="hover-text">
                 <i class="fas fa-search-plus"></i>
@@ -1084,7 +1279,7 @@
               </div>
             </figure>
             <figure>
-              <img src="images/montaz-zatezovych-kobercu-a-pvc-komercni-prostory.jpg" alt="Montáž zátěžových koberců a PVC v komerčních prostorách" tabindex="0" />
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="images/montaz-zatezovych-kobercu-a-pvc-komercni-prostory.jpg" alt="Montáž zátěžových koberců a PVC v komerčních prostorách" tabindex="0" loading="lazy" class="lazy" />
               <figcaption>Montáž zátěžových koberců a PVC v komerčních prostorách</figcaption>
               <div class="hover-text">
                 <i class="fas fa-search-plus"></i>
@@ -1092,7 +1287,7 @@
               </div>
             </figure>
             <figure>
-              <img src="images/schody-zakryte-osb-deskou-pred-lepenim-pvc.jpg" alt="Schody s OSB deskou před lepením PVC" tabindex="0" />
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="images/schody-zakryte-osb-deskou-pred-lepenim-pvc.jpg" alt="Schody s OSB deskou před lepením PVC" tabindex="0" loading="lazy" class="lazy" />
               <figcaption>Schody s OSB deskou před lepením PVC</figcaption>
               <div class="hover-text">
                 <i class="fas fa-search-plus"></i>
@@ -1100,7 +1295,7 @@
               </div>
             </figure>
             <figure>
-              <img src="images/schody-z-vinylovych-dilcu-s-bezbarierovou-hranou.jpg" alt="Schody z vinylových dílců s bezbariérovou hranou" tabindex="0" />
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="images/schody-z-vinylovych-dilcu-s-bezbarierovou-hranou.jpg" alt="Schody z vinylových dílců s bezbariérovou hranou" tabindex="0" loading="lazy" class="lazy" />
               <figcaption>Schody z vinylových dílců s bezbariérovou hranou</figcaption>
               <div class="hover-text">
                 <i class="fas fa-search-plus"></i>
@@ -1108,7 +1303,7 @@
               </div>
             </figure>
             <figure>
-              <img src="images/schody-polozene-pvc-s-prekryvacimi-schodovymi-hranami-.jpg" alt="Schody s překrývacími schodovými hranami" tabindex="0" />
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="images/schody-polozene-pvc-s-prekryvacimi-schodovymi-hranami-.jpg" alt="Schody s překrývacími schodovými hranami" tabindex="0" loading="lazy" class="lazy" />
               <figcaption>Schody s překrývacími schodovými hranami</figcaption>
               <div class="hover-text">
                 <i class="fas fa-search-plus"></i>
@@ -1123,8 +1318,8 @@
     <section id="kontakt" class="section surface">
       <div class="container">
         <h2>Kontakt</h2>
-        <p class="lead">Ozvěte se – domluvíme si nezávazné zaměření a nabídku.</p>
-        <p class="pusobnost"><i class="fas fa-map-marker-alt"></i> <strong>Hlavní působnost:</strong> Jihlava a okolí, Kraj Vysočina</p>
+        <p class="lead">Ozvěte se – domluvíme si nezávazné zaměření a&nbsp;nabídku.</p>
+        <p class="pusobnost"><i class="fas fa-map-marker-alt"></i> <strong>Hlavní působnost:</strong> Jihlava a&nbsp;okolí, Kraj Vysočina</p>
         <div class="grid kontakt-grid">
           <section class="card" aria-label="Kontakt Jiří Votava">
             <span><i class="fas fa-phone" aria-hidden="true"></i></span>
@@ -1184,7 +1379,7 @@
   <div id="contactModal" class="modal">
     <div class="modal-content">
       <span class="modal-close" id="modalClose" title="Zavřít" aria-label="Zavřít">&times;</span>
-      <h3 style="text-align: center; font-size: 28px; margin-bottom: 30px;">Kontaktujte nás</h3>
+      <h3 style="text-align: center; font-size: 26px; margin-bottom: 24px; line-height: 1.3;">Kontaktujte nás</h3>
       <div class="card modal-card"><span><i class="fas fa-phone" aria-hidden="true"></i></span><div class="modal-card-content"><strong>Jiří Votava</strong><br><a href="tel:+420607179061" class="contact-link">+420&nbsp;607&nbsp;179&nbsp;061</a></div><div class="modal-card-action"><a href="tel:+420607179061" class="btn btn-sm">Zavolat</a></div></div>
       <div class="card modal-card"><span><i class="fas fa-phone" aria-hidden="true"></i></span><div class="modal-card-content"><strong>Václav Matula</strong><br><a href="tel:+420607181228" class="contact-link">+420&nbsp;607&nbsp;181&nbsp;228</a></div><div class="modal-card-action"><a href="tel:+420607181228" class="btn btn-sm">Zavolat</a></div></div>
       <div class="card modal-card"><span><i class="fas fa-envelope" aria-hidden="true"></i></span><div class="modal-card-content"><strong>Napište nám</strong><br><a href="mailto:info@podlahyvm.cz" class="contact-link">info@podlahyvm.cz</a></div><div class="modal-card-action"><a href="mailto:info@podlahyvm.cz" class="btn btn-sm">Napsat e-mail</a></div></div>
@@ -1207,11 +1402,11 @@
 
       <div style="max-height: 60vh; overflow-y: auto; padding-right: 15px;">
         <h4 style="font-size: 18px; margin-top: 0;">Co jsou cookies?</h4>
-        <p style="margin-bottom: 20px;">Cookies jsou malé textové soubory, které jsou uloženy ve vašem prohlížeči a umožňují webovým stránkám rozpoznat vás při opětovné návštěvě. Používáme je k zajištění správného fungování webu, jeho zlepšování a poskytování lepšího uživatelského zážitku.</p>
+        <p style="margin-bottom: 20px;">Cookies jsou malé textové soubory, které jsou uloženy ve vašem prohlížeči a&nbsp;umožňují webovým stránkám rozpoznat vás při opětovné návštěvě. Používáme je k&nbsp;zajištění správného fungování webu, jeho zlepšování a&nbsp;poskytování lepšího uživatelského zážitku.</p>
 
         <h4 style="font-size: 18px;">Jaké typy cookies používáme?</h4>
         <p style="margin-bottom: 10px;"><strong>Nezbytné cookies:</strong> Tyto cookies jsou nutné pro správné fungování našeho webu. Bez nich by stránky nefungovaly správně. Tyto cookies nesbírají žádné informace, které by mohly být použity pro marketingové účely.</p>
-        <p style="margin-bottom: 20px;"><strong>Analytické cookies:</strong> Pomáhají nám pochopit, jak návštěvníci používají naše stránky. Sbíráme anonymizované informace o návštěvnosti, což nám umožňuje zlepšovat fungování webu. Pro tyto účely využíváme službu Google Analytics.</p>
+        <p style="margin-bottom: 20px;"><strong>Analytické cookies:</strong> Pomáhají nám pochopit, jak návštěvníci používají naše stránky. Sbíráme anonymizované informace o&nbsp;návštěvnosti, což nám umožňuje zlepšovat fungování webu. Pro tyto účely využíváme službu Google Analytics.</p>
 
         <h4 style="font-size: 18px;">Jak spravovat cookies?</h4>
         <p style="margin-bottom: 20px;">Většina webových prohlížečů umožňuje spravovat cookies prostřednictvím nastavení prohlížeče. Můžete cookies blokovat, mazat nebo nastavit prohlížeč tak, aby vás upozornil na jejich použití. Upozorňujeme, že vypnutí cookies může negativně ovlivnit funkčnost a uživatelský komfort při používání našeho webu.</p>
@@ -1415,7 +1610,7 @@
         lightboxContent.style.transform = 'scale(0.95)';
 
         // Set image source and caption
-        lightboxImg.src = img.src;
+        lightboxImg.src = img.dataset.src || img.src;
         lightboxImg.alt = img.alt;
         lightboxCaption.textContent = caption;
 
@@ -1513,17 +1708,17 @@
     function addSwipeSupport() {
       const gallery = document.querySelector('.gallery');
       if (!gallery) return;
-      
+
       let touchStartX = 0;
       let touchEndX = 0;
       let currentIndex = 0;
       const images = document.querySelectorAll('.gallery figure');
       const totalImages = images.length;
-      
+
       // Gallery navigation buttons
       const prevBtn = document.querySelector('.gallery-nav.prev');
       const nextBtn = document.querySelector('.gallery-nav.next');
-      
+
       // Update navigation button states
       function updateNavButtons() {
         // Disable previous button at first item
@@ -1534,7 +1729,7 @@
           prevBtn.classList.remove('disabled');
           prevBtn.setAttribute('aria-disabled', 'false');
         }
-        
+
         // Disable next button at last item
         if (currentIndex === totalImages - 1) {
           nextBtn.classList.add('disabled');
@@ -1544,7 +1739,7 @@
           nextBtn.setAttribute('aria-disabled', 'false');
         }
       }
-      
+
       if (prevBtn && nextBtn) {
         prevBtn.addEventListener('click', () => {
           if (currentIndex > 0) {
@@ -1553,7 +1748,7 @@
             updateNavButtons();
           }
         });
-        
+
         nextBtn.addEventListener('click', () => {
           if (currentIndex < totalImages - 1) {
             currentIndex++;
@@ -1561,21 +1756,21 @@
             updateNavButtons();
           }
         });
-        
+
         // Initialize button states
         updateNavButtons();
       }
-      
+
       // Touch events for mobile swipe
       gallery.addEventListener('touchstart', e => {
         touchStartX = e.changedTouches[0].screenX;
       }, {passive: true});
-      
+
       gallery.addEventListener('touchend', e => {
         touchEndX = e.changedTouches[0].screenX;
         handleSwipe();
       }, {passive: true});
-      
+
       function handleSwipe() {
         // Detect swipe direction
         if (touchEndX < touchStartX - 50 && currentIndex < totalImages - 1) { // Swipe left
@@ -1584,7 +1779,7 @@
           scrollToImage(currentIndex);
           updateNavButtons();
         }
-        
+
         if (touchEndX > touchStartX + 50 && currentIndex > 0) { // Swipe right
           // Previous image
           currentIndex--;
@@ -1592,7 +1787,7 @@
           updateNavButtons();
         }
       }
-      
+
       function scrollToImage(index) {
         if (images[index]) {
           images[index].scrollIntoView({
@@ -1602,7 +1797,7 @@
           });
         }
       }
-      
+
       // Listen for scroll events to update the current index
       gallery.addEventListener('scroll', () => {
         // Throttle the scroll event
@@ -1611,39 +1806,98 @@
             // Find which image is most visible
             let closestImage = 0;
             let closestDistance = Infinity;
-            
+
             const galleryRect = gallery.getBoundingClientRect();
             const galleryCenter = galleryRect.left + galleryRect.width / 2;
-            
+
             images.forEach((img, i) => {
               const imgRect = img.getBoundingClientRect();
               const imgCenter = imgRect.left + imgRect.width / 2;
               const distance = Math.abs(galleryCenter - imgCenter);
-              
+
               if (distance < closestDistance) {
                 closestDistance = distance;
                 closestImage = i;
               }
             });
-            
+
             if (closestImage !== currentIndex) {
               currentIndex = closestImage;
               updateNavButtons();
             }
-            
+
             gallery.scrollTimeout = null;
           }, 100);
         }
       }, {passive: true});
     }
-    
+
     // Initialize all modal event listeners when DOM is loaded
     document.addEventListener('DOMContentLoaded', () => {
       attachModalListeners();
       initLightbox();
       addSwipeSupport();
       setupSharedContent();
+      initLazyLoading();
     });
+
+    // Lazy loading for images
+    function initLazyLoading() {
+      const lazyImages = document.querySelectorAll('img.lazy');
+
+      if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.dataset.src;
+              img.classList.remove('lazy');
+              imageObserver.unobserve(img);
+
+              // Also update lightbox source if needed
+              img.addEventListener('load', () => {
+                if (img.closest('figure') && img.closest('figure').querySelector('.hover-text')) {
+                  img.style.cursor = 'pointer';
+                }
+              });
+            }
+          });
+        });
+
+        lazyImages.forEach(img => {
+          imageObserver.observe(img);
+        });
+      } else {
+        // Fallback for browsers that don't support IntersectionObserver
+        let lazyLoadThrottleTimeout;
+
+        function lazyLoad() {
+          if (lazyLoadThrottleTimeout) {
+            clearTimeout(lazyLoadThrottleTimeout);
+          }
+
+          lazyLoadThrottleTimeout = setTimeout(() => {
+            const scrollTop = window.pageYOffset;
+            lazyImages.forEach(img => {
+              if (img.offsetTop < (window.innerHeight + scrollTop)) {
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+              }
+            });
+
+            if (lazyImages.length === 0) {
+              document.removeEventListener('scroll', lazyLoad);
+              window.removeEventListener('resize', lazyLoad);
+              window.removeEventListener('orientationChange', lazyLoad);
+            }
+          }, 20);
+        }
+
+        document.addEventListener('scroll', lazyLoad);
+        window.addEventListener('resize', lazyLoad);
+        window.addEventListener('orientationChange', lazyLoad);
+      }
+    }
   </script>
 
   <!-- Cookie consent banner -->
@@ -1651,7 +1905,7 @@
     <div class="container cookie-content">
       <div class="cookie-text">
         <span id="cookieTitle" class="cookie-title">Nastavení soukromí</span>
-        <p id="cookieDescription">Používáme cookies pro správnou funkci webu a analýzu návštěvnosti. Kliknutím na „Přijmout vše" souhlasíte s používáním všech cookies. Kliknutím na „Jen nezbytné" budou použity jen technicky nezbytné cookies. Více informací najdete v našich <a href="#" id="cookiePolicyLink">zásadách cookies</a>.</p>
+        <p id="cookieDescription">Používáme cookies pro správnou funkci webu a&nbsp;analýzu návštěvnosti. Kliknutím na „Přijmout vše" souhlasíte s&nbsp;používáním všech cookies. Kliknutím na „Jen nezbytné" budou použity jen technicky nezbytné cookies. Více informací najdete v&nbsp;našich <a href="#" id="cookiePolicyLink">zásadách cookies</a>.</p>
       </div>
       <div class="cookie-actions">
         <button id="cookieAcceptNecessary" class="cookie-btn" aria-label="Povolit jen nezbytné cookies">Jen nezbytné</button>
