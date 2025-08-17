@@ -1,6 +1,30 @@
 <!doctype html>
 <html lang="cs">
 <head>
+
+  <!-- Consent Mode: default -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    analytics_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    functionality_storage: 'granted',
+    security_storage: 'granted'
+  });
+</script>
+
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-543NRRBK');</script>
+<!-- End Google Tag Manager -->
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Podlahářské práce V-M</title>
@@ -1077,9 +1101,13 @@
       }
     }
   </style>
+
 </head>
 <body>
-
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-543NRRBK"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <header class="nav" role="banner">
     <div class="container nav-inner">
       <a href="#top" class="logo"><i class="fas fa-tools"></i> Podlahářské práce V-M</a>
@@ -1916,89 +1944,85 @@
 
   <!-- Cookie management script -->
   <script>
-    // Cookie management script
-    (function() {
-      const cookieBanner = document.getElementById('cookieBanner');
-      const acceptAllBtn = document.getElementById('cookieAcceptAll');
-      const acceptNecessaryBtn = document.getElementById('cookieAcceptNecessary');
+(function() {
+  const cookieBanner = document.getElementById('cookieBanner');
+  const acceptAllBtn = document.getElementById('cookieAcceptAll');
+  const acceptNecessaryBtn = document.getElementById('cookieAcceptNecessary');
 
-      // Cookie management functions
-      function setCookie(name, value, days) {
-        let expires = '';
-        if (days) {
-          const date = new Date();
-          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-          expires = '; expires=' + date.toUTCString();
-        }
-        document.cookie = name + '=' + (value || '') + expires + '; path=/; SameSite=Lax';
-      }
+  // --- helpers (cookies) ---
+  function setCookie(name, value, days) {
+    let expires = '';
+    if (days) {
+      const d = new Date();
+      d.setTime(d.getTime() + days*24*60*60*1000);
+      expires = '; expires=' + d.toUTCString();
+    }
+    document.cookie = name + '=' + (value||'') + expires + '; path=/; SameSite=Lax';
+  }
+  function getCookie(name) {
+    const nameEQ = name + '=';
+    return document.cookie.split(';').map(c=>c.trim()).find(c=>c.indexOf(nameEQ)===0)?.substring(nameEQ.length) || null;
+  }
 
-      function getCookie(name) {
-        const nameEQ = name + '=';
-        const ca = document.cookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-          let c = ca[i];
-          while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-          if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-        }
-        return null;
-      }
+  // --- dataLayer/gtag helpers ---
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  function pushConsentEvent(value){
+    window.dataLayer.push({ event: 'cookie_consent_update', cookie_consent: value });
+  }
 
-      // Check if consent was given
-      function hasConsent() {
-        return getCookie('cookie_consent') !== null;
-      }
+  // --- initialize based on saved choice ---
+  const saved = getCookie('cookie_consent'); // 'all' | 'necessary' | null
+  if (!saved) {
+    // zatím bez souhlasu → necháme default denied (nastaveno v head)
+    setTimeout(()=> cookieBanner?.classList.add('active'), 400);
+  } else if (saved === 'all') {
+    // už dříve odsouhlasil → povolíme měření
+    gtag('consent', 'update', {
+      analytics_storage: 'granted',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    pushConsentEvent('granted');
+  } else {
+    // necessary only
+    gtag('consent', 'update', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    pushConsentEvent('denied');
+  }
 
-      // Initialize analytics if consent was given
-      function initializeAnalytics() {
-        if (getCookie('cookie_consent') === 'all') {
-          // This function will be called when the user accepts analytics cookies
-          // Google Analytics code will be inserted here later
-          console.log('Analytics initialized');
+  // --- UI handlers ---
+  acceptAllBtn?.addEventListener('click', () => {
+    setCookie('cookie_consent', 'all', 365);
+    gtag('consent', 'update', {
+      analytics_storage: 'granted',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    pushConsentEvent('granted');          // pro tvé triggery v GTM
+    cookieBanner?.classList.remove('active');
+  });
 
-          // Example of how GA might be initialized:
-          /*
-          const gaScript = document.createElement('script');
-          gaScript.async = true;
-          gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID';
-          document.head.appendChild(gaScript);
+  acceptNecessaryBtn?.addEventListener('click', () => {
+    setCookie('cookie_consent', 'necessary', 365);
+    gtag('consent', 'update', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    pushConsentEvent('denied');           // pro triggery
+    cookieBanner?.classList.remove('active');
+  });
+})();
+</script>
 
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'YOUR-GA-ID');
-          */
-        }
-      }
-
-      // Show cookie banner if no consent given
-      function manageCookieBanner() {
-        if (!hasConsent()) {
-          setTimeout(() => {
-
-            cookieBanner.classList.add('active');
-          }, 1000);
-        } else {
-          initializeAnalytics();
-        }
-      }
-
-      // Event listeners
-      acceptAllBtn.addEventListener('click', () => {
-        setCookie('cookie_consent', 'all', 365);
-        cookieBanner.classList.remove('active');
-        initializeAnalytics();
-      });
-
-      acceptNecessaryBtn.addEventListener('click', () => {
-        setCookie('cookie_consent', 'necessary', 365);
-        cookieBanner.classList.remove('active');
-      });
-
-      // Initialize
-      manageCookieBanner();
-    })();
-  </script>
 
   <!-- Image lightbox -->
   <div id="imageLightbox" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxCaption">
